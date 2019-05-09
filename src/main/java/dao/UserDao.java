@@ -12,22 +12,39 @@ public class UserDao {
     Connection connection = DbConnector.connect();
     private static final Logger logger = Logger.getLogger(UserDao.class);
 
+//    public int addUser(User user) {
+//        try {
+//            Statement statement = connection.createStatement();
+//            String name = user.getName();
+//            String password = user.getPassword();
+//            String email = user.getEmail();
+//            Integer role = user.getRole();
+//            String sql = "INSERT INTO madb.users(name, password, email, role ) VALUES ('" + name + "','" + password + "','"+ email+ "','" + role +"');";
+//            logger.debug(sql);
+//            int userAddedOrNo = statement.executeUpdate(sql);
+//            return userAddedOrNo;
+//        } catch (SQLException e) {
+//            logger.error("Can't add user by name", e);
+//            return 0;
+//        }
+//    }
+
     public int addUser(User user) {
         try {
-            Statement statement = connection.createStatement();
-            String name = user.getName();
-            String password = user.getPassword();
-            Integer role = user.getRole();
-            String sql = "INSERT INTO madb.users(name, password, role) VALUES ('" + name + "','" + password + "','"+ role +"');";
+            String sql = "INSERT INTO madb.users (name , password, email, role) VALUES (?, ?, ?, ?);";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, user.getName());
+            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(3, user.getEmail());
+            preparedStatement.setInt(4, user.getRole());
+            int result = preparedStatement.executeUpdate();
             logger.debug(sql);
-            int userAddedOrNo = statement.executeUpdate(sql);
-            return userAddedOrNo;
+            return result;
         } catch (SQLException e) {
-            logger.error("Can't add user by name", e);
+            logger.error("Can't add user", e);
             return 0;
         }
     }
-
 
     public Optional<User> getUserByName(String name, String pass) {
         try {
@@ -41,9 +58,12 @@ public class UserDao {
                 Long userId = resultSet.getLong(1);
                 String nameUser = resultSet.getString(2);
                 String password = resultSet.getString(3);
-                Integer role = resultSet.getInt(4);
-                User user = new User(userId, nameUser, password, role);
+                String email = resultSet.getString(4);
+                Integer role = resultSet.getInt(5);
+                User user = new User(userId, nameUser, password, email, role);
+                                                                        System.out.println(email);
                 return Optional.of(user);
+
             }
         } catch (SQLException e) {
             logger.error("Can't get user by name ", e);

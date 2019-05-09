@@ -5,6 +5,7 @@ import java.util.Objects;
 public class User {
     protected Long id;
     private String name;
+    private String email;
     private String password;
     private Integer role;
 
@@ -13,17 +14,22 @@ public class User {
         this.password = password;
     }
 
-    public User(Long id, String name, String password, Integer role) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
+    public User(String name, String password, String email, Integer role) {
+        this(name, password);
         this.role = role;
+        this.email = email;
     }
 
-    public User(String name, String password, Integer role) {
+    public User(Long id, String name, String password, Integer role) {
         this.name = name;
-        this.password = password;
-        this.role = role;
+        this.password=password;
+        this.role=role;
+        this.id = id;
+    }
+
+    public User(Long id, String name,  String password, String email, Integer role) {
+        this(id, name, password, role);
+        this.email = email;
     }
 
     public Long getId() {
@@ -40,6 +46,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -65,13 +79,14 @@ public class User {
         User user = (User) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(name, user.name) &&
+                Objects.equals(email, user.email) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(role, user.role);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password, role);
+        return Objects.hash(id, name, email, password, role);
     }
 
     @Override
@@ -79,6 +94,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role=" + role +
                 '}';

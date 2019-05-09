@@ -70,3 +70,91 @@
 2019-05-09 03:06:25 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
 2019-05-09 03:06:37 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
 2019-05-09 03:06:37 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
+2019-05-09 12:41:10 DEBUG RegistrationServlet:23 - User with id (?) start registration
+2019-05-09 13:13:19 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 13:13:19 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 13:32:46 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 13:32:46 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 13:33:11 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 13:33:11 DEBUG LoginServlet:46 - User with id 21 logged in system like admin
+2019-05-09 13:33:27 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 13:33:27 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 13:37:46 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 13:37:46 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 13:37:46 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 13:43:26 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 13:43:26 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 13:43:26 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 15:22:56 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 15:22:56 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 15:22:56 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 15:26:01 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 15:26:01 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 15:26:01 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 15:27:25 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 15:27:25 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 15:27:26 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 15:54:49 DEBUG UserDao:57 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 15:55:00 DEBUG UserDao:57 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 15:55:30 DEBUG UserDao:57 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 15:55:41 DEBUG UserDao:57 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:00:20 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:00:44 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:01:12 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:04:12 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:04:22 DEBUG RegistrationServlet:23 - User with id (?) start registration
+2019-05-09 16:04:31 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:04:31 ERROR RegistrationServlet:38 - Can't add user in database, zero rows changes after sql query
+2019-05-09 16:04:44 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:09:25 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:10:05 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:10:05 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 16:10:05 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 16:10:21 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:10:21 DEBUG LoginServlet:46 - User with id 21 logged in system like admin
+2019-05-09 16:10:53 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 16:10:53 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 16:10:53 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 17:01:17 ERROR MailService:50 - Can't send message
+javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials q5sm402391lfj.1 - gsmtp
+
+	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
+	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:780)
+	at javax.mail.Service.connect(Service.java:388)
+	at javax.mail.Service.connect(Service.java:246)
+	at javax.mail.Service.connect(Service.java:195)
+	at javax.mail.Transport.send0(Transport.java:254)
+	at javax.mail.Transport.send(Transport.java:124)
+	at service.MailService.sendMail(MailService.java:44)
+	at service.MailService.main(MailService.java:56)
+2019-05-09 17:11:26 ERROR MailService:50 - Can't send message
+javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials k10sm360014ljh.86 - gsmtp
+
+	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
+	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:780)
+	at javax.mail.Service.connect(Service.java:388)
+	at javax.mail.Service.connect(Service.java:246)
+	at javax.mail.Service.connect(Service.java:195)
+	at javax.mail.Transport.send0(Transport.java:254)
+	at javax.mail.Transport.send(Transport.java:124)
+	at service.MailService.sendMail(MailService.java:44)
+	at service.MailService.main(MailService.java:56)
+2019-05-09 18:17:21 ERROR MailService:50 - Can't send message
+javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials m5sm293694ljc.65 - gsmtp
+
+	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:965)
+	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:876)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:780)
+	at javax.mail.Service.connect(Service.java:388)
+	at javax.mail.Service.connect(Service.java:246)
+	at javax.mail.Service.connect(Service.java:195)
+	at javax.mail.Transport.send0(Transport.java:254)
+	at javax.mail.Transport.send(Transport.java:124)
+	at service.MailService.sendMail(MailService.java:44)
+	at service.MailService.main(MailService.java:56)
+2019-05-09 18:46:32 INFO  MailService:48 - Сообщение отправлено

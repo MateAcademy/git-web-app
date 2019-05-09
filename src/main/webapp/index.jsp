@@ -39,7 +39,6 @@
 <br>
 <a href="registration">Регистрация</a>
 
-
 </center>
 </body>
 </html>
