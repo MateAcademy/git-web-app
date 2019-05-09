@@ -1,0 +1,72 @@
+2019-05-09 01:56:44 DEBUG UserDao:38 - SELECT * FROM madb2.users WHERE name = ?;
+2019-05-09 01:58:22 DEBUG UserDao:38 - SELECT * FROM madb2.users WHERE name = ?;
+2019-05-09 01:59:21 DEBUG UserDao:38 - SELECT * FROM madb2.users WHERE name = ?;
+2019-05-09 02:00:43 DEBUG UserDao:38 - SELECT * FROM madb2.users WHERE name = ?;
+2019-05-09 02:00:58 DEBUG UserDao:38 - SELECT * FROM madb2.users WHERE name = ?;
+2019-05-09 02:01:07 DEBUG UserDao:38 - SELECT * FROM madb2.users WHERE name = ?;
+2019-05-09 02:08:31 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:15:11 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:15:37 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:19:21 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:20:02 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:21:29 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:21:44 DEBUG RegistrationServlet:22 - User with id (?) start registration
+2019-05-09 02:21:57 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:24:35 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:25:13 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:25:19 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:25:35 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:33:49 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:34:08 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:34:16 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:34:43 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:36:50 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:38:43 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:38:43 DEBUG LoginServlet:45 - User with id 1 logged in system like admin
+2019-05-09 02:39:20 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:39:20 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 02:39:48 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:39:48 DEBUG LoginServlet:45 - User with id 1 logged in system like admin
+2019-05-09 02:44:44 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:44:44 DEBUG LoginServlet:45 - User with id 1 logged in system like admin
+2019-05-09 02:47:07 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:47:13 DEBUG RegistrationServlet:22 - User with id (?) start registration
+2019-05-09 02:49:56 DEBUG RegistrationServlet:22 - User with id (?) start registration
+2019-05-09 02:49:59 DEBUG RegistrationServlet:22 - User with id (?) start registration
+2019-05-09 02:51:35 DEBUG UserDao:22 - INSERT INTO madb.users(name, password, role) VALUES ('tolik','4444','2');
+2019-05-09 02:51:35 DEBUG RegistrationServlet:40 - User with name tolik was registered
+2019-05-09 02:52:06 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:52:06 DEBUG LoginServlet:42 - User with id 18 logged in system like user
+2019-05-09 02:53:14 DEBUG RegistrationServlet:22 - User with id (?) start registration
+2019-05-09 02:53:25 DEBUG UserDao:22 - INSERT INTO madb.users(name, password, role) VALUES ('admin','admin','2');
+2019-05-09 02:53:25 DEBUG RegistrationServlet:40 - User with name admin was registered
+2019-05-09 02:53:46 DEBUG RegistrationServlet:22 - User with id (?) start registration
+2019-05-09 02:53:55 DEBUG UserDao:22 - INSERT INTO madb.users(name, password, role) VALUES ('admin','admin','2');
+2019-05-09 02:53:55 DEBUG RegistrationServlet:40 - User with name admin was registered
+2019-05-09 02:56:58 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:57:09 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:57:29 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:57:42 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 02:57:42 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 03:01:25 DEBUG RegistrationServlet:23 - User with id (?) start registration
+2019-05-09 03:01:40 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:01:40 ERROR RegistrationServlet:38 - Can't add user in database, zero rows changes after sql query
+2019-05-09 03:01:57 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:01:57 DEBUG LoginServlet:45 - User with id 1 logged in system like admin
+2019-05-09 03:02:21 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:02:34 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:02:45 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:02:59 DEBUG RegistrationServlet:23 - User with id (?) start registration
+2019-05-09 03:03:09 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:03:09 DEBUG UserDao:22 - INSERT INTO madb.users(name, password, role) VALUES ('admin','admin','2');
+2019-05-09 03:03:09 DEBUG RegistrationServlet:49 - User with name admin was registered
+2019-05-09 03:03:19 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:03:19 DEBUG LoginServlet:42 - User with id 21 logged in system like user
+2019-05-09 03:03:57 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:03:57 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
+2019-05-09 03:06:19 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:06:19 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
+2019-05-09 03:06:25 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:06:25 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
+2019-05-09 03:06:37 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 03:06:37 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
