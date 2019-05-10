@@ -3,18 +3,20 @@ package service;
 import org.apache.log4j.Logger;
 import utils.RandomHelper;
 
-import javax.mail.*;
+//import javax.mail.*;
+import javax.mail.Message;
+import javax.mail.Transport;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.Random;
 
+import javax.mail.Authenticator;
 public class MailService {
 
     private static final Logger logger = Logger.getLogger(MailService.class);
-
-
-
 
     public String sendEmailWithCode(String userEmail) {
         final String username = "s.klunniy@gmail.com";
@@ -27,7 +29,7 @@ public class MailService {
         prop.put("mail.smtp.starttls.enable", "true"); //TLS
 
         Session session = Session.getInstance(prop,
-                new javax.mail.Authenticator() {
+                new Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication(username, password);
                     }
@@ -59,10 +61,10 @@ public class MailService {
         }
     }
 
-    public static void main(String[] args) {
-        MailService mailService = new MailService();
-        mailService.sendEmailWithCode("s.klunniy@gmail.com");
-    }
+//    public static void main(String[] args) {
+//        MailService mailService = new MailService();
+//        mailService.sendEmailWithCode("s.klunniy@gmail.com");
+//    }
 
 }
 
