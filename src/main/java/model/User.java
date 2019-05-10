@@ -5,8 +5,8 @@ import java.util.Objects;
 public class User {
     protected Long id;
     private String name;
-    private String email;
     private String password;
+    private String email;
     private Integer role;
 
     public User(String name, String password) {
@@ -21,10 +21,10 @@ public class User {
     }
 
     public User(Long id, String name, String password, Integer role) {
+        this.id = id;
         this.name = name;
         this.password=password;
         this.role=role;
-        this.id = id;
     }
 
     public User(Long id, String name,  String password, String email, Integer role) {

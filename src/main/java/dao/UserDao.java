@@ -61,7 +61,7 @@ public class UserDao {
                 String email = resultSet.getString(4);
                 Integer role = resultSet.getInt(5);
                 User user = new User(userId, nameUser, password, email, role);
-                                                                        System.out.println(email);
+
                 return Optional.of(user);
 
             }

@@ -127,7 +127,7 @@ javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not ac
 	at javax.mail.Service.connect(Service.java:195)
 	at javax.mail.Transport.send0(Transport.java:254)
 	at javax.mail.Transport.send(Transport.java:124)
-	at service.MailService.sendMail(MailService.java:44)
+	at sendEmailWithCode(MailService.java:44)
 	at service.MailService.main(MailService.java:56)
 2019-05-09 17:11:26 ERROR MailService:50 - Can't send message
 javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
@@ -141,7 +141,7 @@ javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not ac
 	at javax.mail.Service.connect(Service.java:195)
 	at javax.mail.Transport.send0(Transport.java:254)
 	at javax.mail.Transport.send(Transport.java:124)
-	at service.MailService.sendMail(MailService.java:44)
+	at sendEmailWithCode(MailService.java:44)
 	at service.MailService.main(MailService.java:56)
 2019-05-09 18:17:21 ERROR MailService:50 - Can't send message
 javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not accepted. Learn more at
@@ -155,6 +155,61 @@ javax.mail.AuthenticationFailedException: 535-5.7.8 Username and Password not ac
 	at javax.mail.Service.connect(Service.java:195)
 	at javax.mail.Transport.send0(Transport.java:254)
 	at javax.mail.Transport.send(Transport.java:124)
-	at service.MailService.sendMail(MailService.java:44)
+	at sendEmailWithCode(MailService.java:44)
 	at service.MailService.main(MailService.java:56)
 2019-05-09 18:46:32 INFO  MailService:48 - Сообщение отправлено
+2019-05-09 19:04:40 INFO  MailService:49 - Сообщение отправлено
+2019-05-09 19:59:00 INFO  MailService:49 - Сообщение отправлено
+2019-05-09 19:59:39 INFO  MailService:49 - Сообщение отправлено
+2019-05-09 20:03:22 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:03:22 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 20:03:22 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 20:03:32 INFO  MailService:49 - ��������� ����������
+2019-05-09 20:03:44 INFO  MailService:49 - ��������� ����������
+2019-05-09 20:03:55 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:03:55 DEBUG LoginServlet:46 - User with id 21 logged in system like admin
+2019-05-09 20:05:13 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:05:13 DEBUG LoginServlet:46 - User with id 21 logged in system like admin
+2019-05-09 20:05:35 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:05:35 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 20:05:35 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 20:13:11 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:13:11 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 20:13:11 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 20:16:24 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:16:24 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 20:16:24 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 20:16:36 INFO  MailService:49 - ��������� ����������
+2019-05-09 20:16:40 INFO  MailService:49 - ��������� ����������
+2019-05-09 20:21:40 INFO  MailService:49 - ��������� ����������
+2019-05-09 20:35:05 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:35:05 DEBUG LoginServlet:46 - User with id 21 logged in system like admin
+2019-05-09 20:35:31 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-09 20:35:31 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-09 20:35:31 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-09 20:35:52 INFO  MailService:47 - ��������� ����������javax.mail.internet.MimeMessage@23f00a5a
+2019-05-10 02:56:15 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-10 02:56:15 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-10 02:56:16 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-10 02:56:29 INFO  MailService:47 - ��������� ����������javax.mail.internet.MimeMessage@e7879a1
+2019-05-10 02:56:45 INFO  MailService:47 - ��������� ����������javax.mail.internet.MimeMessage@331e1882
+2019-05-10 02:57:27 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-10 02:57:27 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-10 02:57:27 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-10 02:57:36 INFO  MailService:47 - ��������� ����������javax.mail.internet.MimeMessage@1561ce9
+2019-05-10 03:02:12 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-10 03:02:12 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-10 03:02:12 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-10 03:02:23 INFO  MailService:47 - ��������� ����������javax.mail.internet.MimeMessage@2904e3c3
+2019-05-10 03:28:11 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-10 03:28:11 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-10 03:28:11 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-10 03:28:23 INFO  MailService:47 - ��������� ����������javax.mail.internet.MimeMessage@3edd16b5
+2019-05-10 03:44:34 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-10 03:44:34 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-10 03:44:34 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-10 03:44:44 INFO  MailService:53 - ��������� ����������javax.mail.internet.MimeMessage@e5536b6
+2019-05-10 04:09:49 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-10 04:09:49 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-10 04:09:50 DEBUG UserDao:61 - SELECT * FROM madb.goods;
+2019-05-10 04:09:59 INFO  MailService:53 - ��������� ����������javax.mail.internet.MimeMessage@39dc450b
