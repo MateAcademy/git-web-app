@@ -40,7 +40,7 @@ public class RegistrationServlet extends HttpServlet {
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         }else {
 
-        int howManyUsersChanged = userDao.addUser(new User(name, password, 2));
+        int howManyUsersChanged = userDao.addUser(new User(name, password, "test@test.ru", 2));
 
         System.out.println(howManyUsersChanged);
 

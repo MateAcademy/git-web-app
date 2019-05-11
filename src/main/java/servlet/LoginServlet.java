@@ -33,17 +33,19 @@ public class LoginServlet extends HttpServlet {
         Optional<User> userFromDb =  userDao.getUserByName(name, password);
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
-            System.out.println(user.getName());
+                                                    System.out.println(user.getName());
             if (user.getPassword().equals(password)) {
 
                 req.getSession().setAttribute("user", user);
-                req.setAttribute("name", name);
+ //               req.setAttribute("name", name);
                 if (user.getRole().equals(2)) {
                     logger.debug("User with id " + user.getId() + " logged in system like user");
-                    req.getRequestDispatcher("userPage.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/goods").forward(req, resp);
+                    return;
                 } else if (user.getRole().equals(1)){
                     logger.debug("User with id " + user.getId() + " logged in system like admin");
                     req.getRequestDispatcher("/admin").forward(req, resp);
+                    return;
                 }
             }
         }
