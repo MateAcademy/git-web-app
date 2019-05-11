@@ -17,7 +17,7 @@
 </style>
 
 <body style="background-image:url(girl.jpg) ">
-
+<center>
 <form action="registration" method="post">
     <h3> Пройдите регистрацию:</h3>
     <p>Имя: <input type="text" name="name" value=" Введите свое имя ">
@@ -25,6 +25,6 @@
     <input type="checkbox" name="agree" value="yes"> Согласен с политикой обработки данных</input>
     <br><br><input type="submit" value="Зарегистрироваться" class="b1">
 </form>
-
+</center>
 </body>
 </html>
