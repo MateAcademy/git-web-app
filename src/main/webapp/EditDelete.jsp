@@ -19,7 +19,7 @@
     <h1>List of users</h1>
 </div>
 <div class="w3-container w3-left-align">
-    <table border='2' width='80%'>
+    <table border='2'  width="80%">
         <tr>
             <th>Name</th>
             <th>Password</th>

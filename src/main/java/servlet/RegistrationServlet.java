@@ -3,6 +3,7 @@ package servlet;
 import dao.UserDao;
 import model.User;
 import org.apache.log4j.Logger;
+import utils.HashUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,28 +32,26 @@ public class RegistrationServlet extends HttpServlet {
 
         String name = req.getParameter("name");
         String password = req.getParameter("password");
-        String role= req.getParameter("role");
+        String role = req.getParameter("role");
 
-        Optional<User> userFromDb =  userDao.getUserByName(name, password);
+        Optional<User> userFromDb = userDao.getUserByName(name);
         if (userFromDb.isPresent()) {
             logger.error("Can't add user in database, zero rows changes after sql query");
             req.setAttribute("error", "Пользователь не был добавлен, он уже есть в базе данных");
             req.getRequestDispatcher("index.jsp").forward(req, resp);
-        }else {
-
-        int howManyUsersChanged = userDao.addUser(new User(name, password, "test@test.ru", 2));
-
-        System.out.println(howManyUsersChanged);
-
-        if (howManyUsersChanged == 1) {
-            req.setAttribute("isRegistrated", true);
-            logger.debug("User with name " + name + " was registered");
         } else {
-            logger.error("Can't add user in database, zero rows changes after sql query");
-            req.setAttribute("error", "Пользователь не был добавлен");
-        }
 
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
-    }}
+            int howManyUsersChanged = userDao.addUser(new User(name, password, "test@test.ru", 2));
+
+            if (howManyUsersChanged == 1) {
+                req.setAttribute("isRegistrated", true);
+                logger.debug("User with name " + name + " was registered");
+            } else {
+                logger.error("Can't add user in database, zero rows changes after sql query");
+                req.setAttribute("error", "Пользователь не был добавлен");
+            }
+            req.getRequestDispatcher("index.jsp").forward(req, resp);
+        }
+    }
 
 }

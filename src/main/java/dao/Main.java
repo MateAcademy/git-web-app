@@ -9,10 +9,10 @@ public class Main {
         UserDao userDao =new UserDao();
  //       String role = userDao.getRole(new User("test", "test"));
  //       System.out.println("role = " + role);
-        Optional<User> userO = userDao.getUserByName("admin","admin");
-        if (userO.isPresent()) {
-            User user = userO.get();
-            System.out.println(user.getName());
-        }
+//        Optional<User> userO = userDao.getUserByName("admin","admin");
+//        if (userO.isPresent()) {
+//            User user = userO.get();
+ //           System.out.println(user.getName());
+//        }
     }
 }

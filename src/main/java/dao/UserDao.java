@@ -2,6 +2,7 @@ package dao;
 
 import model.User;
 import org.apache.log4j.Logger;
+import utils.HashUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -30,13 +31,15 @@ public class UserDao {
 //    }
 
     public int addUser(User user) {
+
         try {
-            String sql = "INSERT INTO madb.users (name , password, email, role) VALUES (?, ?, ?, ?);";
+            String sql = "INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getPassword());
+            preparedStatement.setString(2, HashUtil.getSHA512SecurePassword(user.getPassword(), user.getSalt()));
             preparedStatement.setString(3, user.getEmail());
             preparedStatement.setInt(4, user.getRole());
+            preparedStatement.setString(5, user.getSalt());
             int result = preparedStatement.executeUpdate();
             logger.debug(sql);
             return result;
@@ -46,24 +49,22 @@ public class UserDao {
         }
     }
 
-    public Optional<User> getUserByName(String name, String pass) {
+    public Optional<User> getUserByName(String name) {
         try {
-            final String sql = "SELECT * FROM madb.users WHERE name = ? and password = ?;";
+            final String sql = "SELECT * FROM madb.users WHERE name = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, pass);
             ResultSet resultSet = preparedStatement.executeQuery();
             logger.debug(sql);
             if (resultSet.next()) {
-                Long userId = resultSet.getLong(1);
-                String nameUser = resultSet.getString(2);
-                String password = resultSet.getString(3);
-                String email = resultSet.getString(4);
-                Integer role = resultSet.getInt(5);
-                User user = new User(userId, nameUser, password, email, role);
-
+                Long userId = resultSet.getLong("id");
+                String nameUser = resultSet.getString("name");
+                String password = resultSet.getString("password");
+                String email = resultSet.getString("email");
+                Integer role = resultSet.getInt("role");
+                String salt = resultSet.getString("salt");
+                User user = new User(userId, nameUser, password, email, role, salt);
                 return Optional.of(user);
-
             }
         } catch (SQLException e) {
             logger.error("Can't get user by name ", e);

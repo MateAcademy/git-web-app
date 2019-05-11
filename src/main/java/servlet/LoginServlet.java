@@ -3,6 +3,7 @@ package servlet;
 import dao.UserDao;
 import model.User;
 import org.apache.log4j.Logger;
+import utils.HashUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,17 +25,15 @@ public class LoginServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html");
 
-        String name = req.getParameter("name");
-        System.out.println(name);
+        String nameFromForm = req.getParameter("name");
+        String passwordFromForm = req.getParameter("password");
 
-        String password = req.getParameter("password");
-        System.out.println(password);
-
-        Optional<User> userFromDb =  userDao.getUserByName(name, password);
+        Optional<User> userFromDb =  userDao.getUserByName(nameFromForm);
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
-                                                    System.out.println(user.getName());
-            if (user.getPassword().equals(password)) {
+            String hashPasswordFromForm = HashUtil.getSHA512SecurePassword(passwordFromForm, user.getSalt());
+
+            if (user.getPassword().equals(hashPasswordFromForm)) {
 
                 req.getSession().setAttribute("user", user);
  //               req.setAttribute("name", name);

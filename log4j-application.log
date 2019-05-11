@@ -74,3 +74,105 @@
 2019-05-11 11:34:12 DEBUG LoginServlet:42 - User with id 4 logged in system like user
 2019-05-11 11:34:12 DEBUG UserDao:65 - SELECT * FROM madb.goods;
 2019-05-11 11:34:26 INFO  MailService:55 - Сообщение отправленоjavax.mail.internet.MimeMessage@c779f04
+2019-05-11 12:24:45 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-11 16:56:46 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-11 16:56:49 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 17:09:15 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:09:37 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:09:37 ERROR UserDao:47 - Can't add user
+com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long for column 'password' at row 1
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:104)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:970)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1109)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.UserDao.addUser(UserDao.java:43)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:44)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-11 17:09:37 ERROR RegistrationServlet:50 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:22:17 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:22:30 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:22:30 DEBUG UserDao:44 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-11 17:22:30 DEBUG RegistrationServlet:48 - User with name Федя was registered
+2019-05-11 17:23:32 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:23:32 DEBUG LoginServlet:41 - User with id 22 logged in system like user
+2019-05-11 17:23:32 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 17:24:01 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:24:14 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:29:34 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:29:46 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:29:46 ERROR RegistrationServlet:39 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:29:59 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:30:03 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:30:14 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:30:14 ERROR RegistrationServlet:39 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:30:47 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:30:49 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:30:58 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:30:58 ERROR RegistrationServlet:39 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:31:18 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:31:18 ERROR RegistrationServlet:39 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:31:21 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:31:32 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:31:32 ERROR RegistrationServlet:39 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:33:14 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:33:22 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:33:22 ERROR RegistrationServlet:39 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:33:41 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:33:45 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:33:55 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:33:55 ERROR RegistrationServlet:39 - Can't add user in database, zero rows changes after sql query
+2019-05-11 17:34:08 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:34:10 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:34:11 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:34:18 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:34:18 DEBUG UserDao:44 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-11 17:34:18 DEBUG RegistrationServlet:48 - User with name solo was registered
+2019-05-11 17:34:26 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:34:26 DEBUG LoginServlet:41 - User with id 23 logged in system like user
+2019-05-11 17:34:26 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 17:35:23 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:35:23 DEBUG LoginServlet:41 - User with id 23 logged in system like user
+2019-05-11 17:35:23 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 17:36:37 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:36:39 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:36:47 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:36:47 DEBUG UserDao:44 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-11 17:36:47 DEBUG RegistrationServlet:48 - User with name test was registered
+2019-05-11 17:36:51 DEBUG RegistrationServlet:24 - User with id (?) start registration
+2019-05-11 17:36:59 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:36:59 DEBUG UserDao:44 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-11 17:36:59 DEBUG RegistrationServlet:48 - User with name admin was registered
+2019-05-11 17:37:29 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:37:29 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 17:44:45 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 17:44:45 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 18:02:48 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 18:02:48 DEBUG LoginServlet:41 - User with id 24 logged in system like user
+2019-05-11 18:02:49 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 18:04:34 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 18:04:34 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
