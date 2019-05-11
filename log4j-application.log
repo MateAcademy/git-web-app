@@ -176,3 +176,21 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 2019-05-11 18:02:49 DEBUG UserDao:65 - SELECT * FROM madb.goods;
 2019-05-11 18:04:34 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
 2019-05-11 18:04:34 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 18:38:59 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 18:38:59 DEBUG LoginServlet:41 - User with id 24 logged in system like user
+2019-05-11 18:38:59 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 18:40:44 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 18:40:44 DEBUG LoginServlet:41 - User with id 24 logged in system like user
+2019-05-11 18:40:44 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 18:40:54 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 18:40:54 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 18:49:30 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 18:49:30 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 18:53:59 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 18:53:59 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 19:06:58 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 19:06:58 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 19:21:59 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 19:21:59 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
+2019-05-11 20:43:22 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-11 20:43:22 DEBUG LoginServlet:45 - User with id 25 logged in system like admin
