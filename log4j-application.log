@@ -70,3 +70,7 @@
 2019-05-09 03:06:25 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
 2019-05-09 03:06:37 DEBUG UserDao:39 - SELECT * FROM madb.users WHERE name = ? and password = ?;
 2019-05-09 03:06:37 DEBUG LoginServlet:45 - User with id 21 logged in system like admin
+2019-05-11 11:34:12 DEBUG UserDao:56 - SELECT * FROM madb.users WHERE name = ? and password = ?;
+2019-05-11 11:34:12 DEBUG LoginServlet:42 - User with id 4 logged in system like user
+2019-05-11 11:34:12 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-11 11:34:26 INFO  MailService:55 - Сообщение отправленоjavax.mail.internet.MimeMessage@c779f04
