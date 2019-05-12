@@ -17,10 +17,10 @@ public class EditDeleteUsersServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//Этот сервлет берет юзеров из базы данных и передает на EditDelete.jsp
+//Этот сервлет берет юзеров из базы данных и передает на usersEditDelete.jsp
         UserDao userDao = new UserDao();
-        List<User> list = userDao.getUsers();
+        List<User> list = userDao.getAllUsers();
         request.setAttribute("users", list);
-        request.getRequestDispatcher("EditDelete.jsp").forward(request, response);
+        request.getRequestDispatcher("usersEditDelete.jsp").forward(request, response);
     }
 }

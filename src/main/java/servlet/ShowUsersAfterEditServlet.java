@@ -30,10 +30,10 @@ public class ShowUsersAfterEditServlet extends HttpServlet {
 //сравниваем хеш из БД и тот что мы сделали
 
             userDao.editUser(name, hashPasswordFromForm);
-            List<User> list = userDao.getUsers();
+            List<User> list = userDao.getAllUsers();
 
             request.setAttribute("users", list);
-            request.getRequestDispatcher("EditDelete.jsp").forward(request, response);
+            request.getRequestDispatcher("usersEditDelete.jsp").forward(request, response);
         }
     }
 }

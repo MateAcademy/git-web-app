@@ -17,7 +17,7 @@ public class ShowAllUsersServlet extends HttpServlet {
     private static final UserDao userDao = new UserDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> users = userDao.getUsers();
+        List<User> users = userDao.getAllUsers();
         request.setAttribute("users", users);
         request.getRequestDispatcher("list.jsp").forward(request, response);
     }

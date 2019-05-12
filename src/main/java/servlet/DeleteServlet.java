@@ -23,9 +23,9 @@ public class DeleteServlet extends HttpServlet {
         User user = new User(name, password);
         userDao.delUser(user);
 
-        List<User> list = userDao.getUsers();
+        List<User> list = userDao.getAllUsers();
 
         req.setAttribute("users", list);
-        req.getRequestDispatcher("EditDelete.jsp").forward(req, resp);
+        req.getRequestDispatcher("usersEditDelete.jsp").forward(req, resp);
     }
 }

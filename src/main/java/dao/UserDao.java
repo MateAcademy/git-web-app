@@ -14,10 +14,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class UserDao {
-    Connection connection = DbConnector.connect();
-    private static final Logger logger = Logger.getLogger(UserDao.class);
 
-//    public int addUser(User user) {
+    private static final Logger logger = Logger.getLogger(UserDao.class);
+    private Connection connection;
+
+    public UserDao() {
+        this.connection = DbConnector.connect();
+    }
+
+    //    public int addUser(User user) {
 //        try {
 //            Statement statement = connection.createStatement();
 //            String name = user.getName();
@@ -35,7 +40,6 @@ public class UserDao {
 //    }
 
     public int addUser(User user) {
-
         try {
             String sql = "INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -113,15 +117,11 @@ public class UserDao {
             String sql = "SELECT * FROM madb.users WHERE name='" + newUser.getName() + "' and password = '" + newUser.getPassword() + "';";
             boolean userInDatabase = false;
             ResultSet resultSet = statement.executeQuery(sql);
-
             while (resultSet.next()) {
                 if (resultSet.getString("name").equals(newUser.getName()) & resultSet.getString("password").equals(newUser.getPassword())) {
                     userInDatabase = true;
                 }
-
             }
-            System.out.println(sql);
-            System.out.println("Есть ли такой User в базе данных: " + userInDatabase);
             return userInDatabase;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -129,13 +129,12 @@ public class UserDao {
         return false;
     }
 
-    public List<User> getUsers() {
+    public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM madb.users";
             ResultSet resultSet = statement.executeQuery(sql);
-
             while (resultSet.next()) {
                 Long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
@@ -143,7 +142,6 @@ public class UserDao {
                 User user = new User(id, name, password);
                 list.add(user);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

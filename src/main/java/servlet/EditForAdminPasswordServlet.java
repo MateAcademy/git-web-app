@@ -18,6 +18,6 @@ public class EditForAdminPasswordServlet extends HttpServlet {
         String name = request.getParameter("name");
 
         request.setAttribute("name", name);
-        request.getRequestDispatcher("Edit.jsp").forward(request, response);
+        request.getRequestDispatcher("usersEdit.jsp").forward(request, response);
     }
 }
