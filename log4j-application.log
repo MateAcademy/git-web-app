@@ -349,3 +349,33 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 2019-05-12 11:57:34 DEBUG UserDao:78 - SELECT * FROM madb.goods;
 2019-05-12 11:57:48 DEBUG UserDao:78 - SELECT * FROM madb.goods;
 2019-05-12 11:58:06 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 18:32:18 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 18:32:26 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 18:32:32 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 18:32:40 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 18:32:40 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 18:34:11 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 18:36:58 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 18:38:09 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 18:38:09 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 18:38:11 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 18:41:38 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 18:41:38 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 18:41:40 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 18:58:15 DEBUG UserDao:42 - INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);
+2019-05-12 18:58:15 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 19:02:03 DEBUG UserDao:42 - INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);
+2019-05-12 19:02:03 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 19:03:16 DEBUG UserDao:42 - INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);
+2019-05-12 19:03:16 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 19:03:57 DEBUG UserDao:42 - INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);
+2019-05-12 19:03:57 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 19:04:21 DEBUG UserDao:42 - INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);
+2019-05-12 19:04:21 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 19:05:50 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 19:06:12 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 19:06:12 DEBUG LoginServlet:56 - User with id 28 logged in system like user
+2019-05-12 19:06:12 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 19:07:17 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 19:07:17 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 19:07:21 DEBUG UserDao:78 - SELECT * FROM madb.goods;

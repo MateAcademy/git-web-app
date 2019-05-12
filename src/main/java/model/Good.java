@@ -8,6 +8,12 @@ public class Good {
     private String description;
     private double price;
 
+    public Good(String name, String description, double price) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
     public Good(Long id, String name, String description, double price) {
         this.id = id;
         this.name = name;

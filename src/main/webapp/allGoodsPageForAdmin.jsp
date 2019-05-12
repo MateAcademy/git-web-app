@@ -12,7 +12,7 @@
 
 
 <div class="w3-container w3-left-align">
-    <table border="2" width="70%">
+    <table border="2" width="90%">
         <tr>
             <th>ID</th>
             <th>Название товара</th>
@@ -37,7 +37,7 @@
 </div>
 
 <br>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/'">Админ может добавить товар!</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='addGood.jsp'">Админ может добавить товар!</button>
 
 <br>
 <button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/'">Back to main</button>
