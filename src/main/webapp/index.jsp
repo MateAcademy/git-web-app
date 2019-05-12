@@ -21,7 +21,7 @@
 <center>
     Форма входа:
 <br>
-<c:if test="${isRegistrated == true}">
+<c:if test="${registered == true}">
     <p>Вы успешно зарегестрированы!</p>
 </c:if>
 
@@ -37,8 +37,7 @@
 <br>
 Еще не зарегестрированы?
 <br>
-<a href="registration">Регистрация</a>
-
+<a href="registration.jsp">Регистрация</a>
 
 </center>
 </body>

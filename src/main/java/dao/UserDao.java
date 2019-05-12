@@ -133,9 +133,10 @@ public class UserDao {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
+                Long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
                 String password = resultSet.getString("password");
-                User user = new User(name, password);
+                User user = new User(id, name, password);
                 list.add(user);
             }
 
@@ -156,7 +157,10 @@ public class UserDao {
         }
     }
 
-    public void editUser(String password, String name) {
+    public void editUser(String name, String password ) {
+
+
+
         try {
             String query = "UPDATE users SET password = '" + password + "' WHERE name='" + name + "';";
             Statement statement = connection.createStatement();

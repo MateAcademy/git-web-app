@@ -28,10 +28,12 @@
 </div>
     <table  width="80%" cellspacing="0" cellpadding="4" border="2" >
         <col width="10%">
-        <col width="70%">
+        <col width="10%">
+        <col width="60%">
         <col width="10%">
         <col width="10%">
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Password</th>
             <th>Edit</th>
@@ -39,6 +41,7 @@
         </tr>
         <c:forEach items="${users}" var="user">
             <tr >
+                <td class="dino" ><c:out value="${user.id}"/></td>
                 <td class="dino" ><c:out value="${user.name}"/></td>
                 <td class="dino" ><c:out value="${user.password}"/></td>
                 <td class="dino" ><a href='/edit?name=${user.name}'>edit all</a></td>

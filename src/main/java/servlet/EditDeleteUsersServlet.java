@@ -11,12 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(value = "/EditDeleteServlet")
+@WebServlet(value = "/editDeleteUsersServlet")
 
-public class EditDeleteServlet extends HttpServlet {
+public class EditDeleteUsersServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+//Этот сервлет берет юзеров из базы данных и передает на EditDelete.jsp
         UserDao userDao = new UserDao();
         List<User> list = userDao.getUsers();
         request.setAttribute("users", list);

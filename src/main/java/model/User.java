@@ -12,6 +12,13 @@ public class User {
     private Integer role;
     private String salt;
 
+    public User(Long id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.salt = HashUtil.getRandomSalt();
+    }
+
     public User(String name, String password) {
         this.name = name;
         this.password = password;
