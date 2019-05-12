@@ -17,6 +17,19 @@ public class GoodDao {
     Connection connection = DbConnector.connect();
     private static final Logger logger = Logger.getLogger(UserDao.class);
 
+
+    public void delGood(Integer id) {
+        try {
+            String query = "DELETE FROM madb.goods where id = " + id+";";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public int addGood(Good good) {
         try {
             String sql = "INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);";

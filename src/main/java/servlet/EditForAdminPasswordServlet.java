@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ModifyPasswordServlet", value = "/edit")
-public class ModifyPasswordServlet extends HttpServlet {
+@WebServlet(name = "EditForAdminPasswordServlet", value = "/edit")
+public class EditForAdminPasswordServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

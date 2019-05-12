@@ -328,3 +328,24 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 2019-05-12 10:49:19 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
 2019-05-12 10:49:19 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
 2019-05-12 10:49:21 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-12 10:58:34 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 10:58:44 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 10:58:44 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 10:58:46 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-12 11:03:58 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 11:03:58 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 11:04:27 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 11:04:49 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 11:04:49 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 11:04:53 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-12 11:26:08 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 11:26:08 ERROR RegistrationServlet:44 - Can't add user in database, zero rows changes after sql query
+2019-05-12 11:26:20 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 11:26:20 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 11:26:34 DEBUG UserDao:65 - SELECT * FROM madb.goods;
+2019-05-12 11:57:15 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 11:57:32 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 11:57:32 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 11:57:34 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 11:57:48 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 11:58:06 DEBUG UserDao:78 - SELECT * FROM madb.goods;
