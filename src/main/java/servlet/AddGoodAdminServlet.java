@@ -26,10 +26,8 @@ public class AddGoodAdminServlet extends HttpServlet {
         GoodDao goodDao = new GoodDao();
         goodDao.addGood(new Good(name, description, cost));
 
-
         List<Good> allGoods = goodDao.getAllGoods();
         request.setAttribute("goods", allGoods);
-
         request.getRequestDispatcher("allGoodsPageForAdmin.jsp").forward(request, response);
     }
 }
