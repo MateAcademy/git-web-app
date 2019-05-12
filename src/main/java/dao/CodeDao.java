@@ -13,7 +13,7 @@ public class CodeDao {
         codes.add(code);
     }
 
-    public boolean checkCode(Code  code) {
+    public boolean checkCode(Code code) {
         return codes.contains(code);
     }
 }

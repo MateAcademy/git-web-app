@@ -3,7 +3,6 @@ package servlet;
 import dao.UserDao;
 import model.User;
 import org.apache.log4j.Logger;
-import utils.HashUtil;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

@@ -2,7 +2,6 @@ package servlet;
 
 import dao.GoodDao;
 import model.Good;
-import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,9 +13,6 @@ import java.util.List;
 
 @WebServlet(name = "DeleteGoodAdminServlet", value = "/deleteGoods")
 public class DeleteGoodAdminServlet extends HttpServlet {
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");

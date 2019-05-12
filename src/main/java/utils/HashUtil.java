@@ -19,25 +19,14 @@ public class HashUtil {
             md.update(salt.getBytes(StandardCharsets.UTF_8));
             byte[] bytes = md.digest(passwordToHash.getBytes(StandardCharsets.UTF_8));
             StringBuilder sb = new StringBuilder();
-            for(int i=0; i< bytes.length ;i++){
+            for (int i = 0; i < bytes.length; i++) {
                 sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
             }
             generatedPassword = sb.toString();
-        }
-        catch (NoSuchAlgorithmException e){
+        } catch (NoSuchAlgorithmException e) {
             logger.error("Can't find algoritm", e);
         }
         return generatedPassword;
-    }
-
-    public static void main(String[] args) {
-//        String password = "qwerty123";
-//        System.out.println(getSHA512SecurePassword(password, "salt"));
-
-        for (int i = 1000; i <= 9999; i++) {
-            String password = String.valueOf(i);
-            System.out.println("для password = " + i + " хэш = " + getSHA512SecurePassword(password , "Salt"));
-        }
     }
 
     public static String getRandomSalt() {
@@ -45,4 +34,18 @@ public class HashUtil {
         new Random().nextBytes(array);
         return new String(array, Charset.forName("UTF-8"));
     }
+
+    /**
+     * public static void main(String[] args) {
+     * String password = "qwerty123";
+     * System.out.println(getSHA512SecurePassword(password, "salt"));
+     * <p>
+     * for (int i = 1000; i <= 9999; i++) {
+     * String password = String.valueOf(i);
+     * System.out.println("для password = " + i + " хэш = " + getSHA512SecurePassword(password , "Salt"));
+     * }
+     * }
+     */
+
+
 }

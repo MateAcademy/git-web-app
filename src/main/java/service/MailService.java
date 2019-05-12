@@ -3,7 +3,6 @@ package service;
 import org.apache.log4j.Logger;
 import utils.RandomHelper;
 
-//import javax.mail.*;
 import javax.mail.Message;
 import javax.mail.Transport;
 import javax.mail.MessagingException;
@@ -14,6 +13,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
+
 public class MailService {
 
     private static final Logger logger = Logger.getLogger(MailService.class);

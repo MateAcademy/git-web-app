@@ -2,7 +2,6 @@ package servlet;
 
 import dao.GoodDao;
 import model.Good;
-import model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,11 +22,10 @@ public class AllGoodsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         List<Good> allGoods = goodDao.getAllGoods();
         request.setAttribute("goods", allGoods);
 
-        HttpSession session =request.getSession();
+        HttpSession session = request.getSession();
         if (session.getAttribute("sessionUser").equals("admin")) {
             request.getRequestDispatcher("allGoodsPageForAdmin.jsp").forward(request, response);
         }

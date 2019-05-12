@@ -15,9 +15,9 @@ public class AdminFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-     //   System.out.println(request.getSession().getAttribute("role"));
-        User user = (User)request.getSession().getAttribute("user");
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+
+        User user = (User) request.getSession().getAttribute("user");
         if (user != null && user.getRole().equals("admin")) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {

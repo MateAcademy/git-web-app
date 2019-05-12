@@ -4,7 +4,11 @@ import model.User;
 import org.apache.log4j.Logger;
 import utils.HashUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -148,25 +152,20 @@ public class UserDao {
 
     public void delUser(User user) {
         try {
-            String query = "DELETE FROM madb.users WHERE name='" + user.getName()+"' and password = '"+user.getPassword()+"';";
+            String query = "DELETE FROM madb.users WHERE name='" + user.getName() + "' and password = '" + user.getPassword() + "';";
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void editUser(String name, String password ) {
-
-
-
+    public void editUser(String name, String password) {
         try {
             String query = "UPDATE users SET password = '" + password + "' WHERE name='" + name + "';";
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

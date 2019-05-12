@@ -34,12 +34,12 @@ public class User {
     public User(Long id, String name, String password, Integer role, String salt) {
         this.id = id;
         this.name = name;
-        this.password=password;
-        this.role=role;
+        this.password = password;
+        this.role = role;
         this.salt = salt;
     }
 
-    public User(Long id, String name,  String password, String email, Integer role, String salt) {
+    public User(Long id, String name, String password, String email, Integer role, String salt) {
         this(id, name, password, role, salt);
         this.email = email;
     }

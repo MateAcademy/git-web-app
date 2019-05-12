@@ -21,6 +21,4 @@ public class ShowAllUsersServlet extends HttpServlet {
         request.setAttribute("users", users);
         request.getRequestDispatcher("list.jsp").forward(request, response);
     }
-
-
 }

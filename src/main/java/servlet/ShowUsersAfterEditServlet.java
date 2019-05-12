@@ -22,18 +22,18 @@ public class ShowUsersAfterEditServlet extends HttpServlet {
 
         UserDao userDao = new UserDao();
 
-        Optional<User> userFromDb =  userDao.getUserByName(name);
+        Optional<User> userFromDb = userDao.getUserByName(name);
 //если есть то делаем хеш код из пароля что мы ввели и соли из б/д
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
             String hashPasswordFromForm = HashUtil.getSHA512SecurePassword(password, user.getSalt());
 //сравниваем хеш из БД и тот что мы сделали
 
-        userDao.editUser(name, hashPasswordFromForm );
-        List<User> list = userDao.getUsers();
+            userDao.editUser(name, hashPasswordFromForm);
+            List<User> list = userDao.getUsers();
 
-        request.setAttribute("users", list);
-        request.getRequestDispatcher("EditDelete.jsp").forward(request, response);
+            request.setAttribute("users", list);
+            request.getRequestDispatcher("EditDelete.jsp").forward(request, response);
         }
     }
 }
