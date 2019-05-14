@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import dao.GoodDao;
 import model.Good;
@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(value = "/goods")
-public class AllGoodsServlet extends HttpServlet {
+public class GoodsServlet extends HttpServlet {
 
     private static final GoodDao goodDao = new GoodDao();
 
@@ -27,8 +27,8 @@ public class AllGoodsServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("sessionUser").equals("admin")) {
-            request.getRequestDispatcher("allGoodsPageForAdmin.jsp").forward(request, response);
+            request.getRequestDispatcher("admin/goodsPageForAdmin.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("allGoodsPage.jsp").forward(request, response);
+        request.getRequestDispatcher("users/allGoodsPage.jsp").forward(request, response);
     }
 }

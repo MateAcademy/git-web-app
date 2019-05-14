@@ -85,4 +85,20 @@ public class GoodDao {
         }
         return allGoods;
     }
+
+    public void updateGoods(Good good) {
+        try {
+            logger.debug("We update good, we send updateGood request");
+            PreparedStatement statement = DbConnector.connect()
+                    .prepareStatement("UPDATE madb.goods SET id=?, name=?, description=?, price=?  WHERE id=?");
+            statement.setLong(1, good.getId());
+            statement.setString(2, good.getName());
+            statement.setString(3, good.getDescription());
+            statement.setDouble(4, good.getPrice());
+            statement.setLong(5, good.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Wrong request updateGoods", e);
+        }
+    }
 }

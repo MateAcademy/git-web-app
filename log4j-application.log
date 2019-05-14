@@ -379,3 +379,1142 @@ com.mysql.cj.jdbc.exceptions.MysqlDataTruncation: Data truncation: Data too long
 2019-05-12 19:07:17 DEBUG UserDao:58 - SELECT * FROM madb.users WHERE name = ?;
 2019-05-12 19:07:17 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
 2019-05-12 19:07:21 DEBUG UserDao:78 - SELECT * FROM madb.goods;
+2019-05-12 22:57:15 DEBUG UserDao:66 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 22:57:15 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-12 22:57:32 DEBUG UserDao:66 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-12 22:57:48 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 01:18:31 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:18:31 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 01:19:03 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:19:03 DEBUG UserDao:51 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-13 01:19:03 DEBUG UserDao:59 - Connection for addUser was successfully close
+2019-05-13 01:19:03 DEBUG RegistrationServlet:55 - User with name luba was registered
+2019-05-13 01:19:15 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:19:15 DEBUG LoginServlet:56 - User with id 34 logged in system like user
+2019-05-13 01:19:15 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 01:19:28 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:19:28 DEBUG LoginServlet:56 - User with id 34 logged in system like user
+2019-05-13 01:19:28 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 01:20:23 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:20:23 DEBUG LoginServlet:56 - User with id 34 logged in system like user
+2019-05-13 01:20:23 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 01:22:04 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:22:04 DEBUG LoginServlet:56 - User with id 34 logged in system like user
+2019-05-13 01:22:04 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 01:22:17 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:22:17 DEBUG LoginServlet:56 - User with id 34 logged in system like user
+2019-05-13 01:22:17 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 01:22:39 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:22:49 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:22:49 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 01:23:29 ERROR UserDao:84 - Can't get user by name 
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.getUserByName(UserDao.java:69)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:41)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:23:29 ERROR UserDao:54 - Error! Can't add user
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.addUser(UserDao.java:44)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:48)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:23:29 DEBUG UserDao:59 - Connection for addUser was successfully close
+2019-05-13 01:23:29 ERROR RegistrationServlet:57 - Can't add user in database, zero rows changes after sql query
+2019-05-13 01:23:54 ERROR UserDao:84 - Can't get user by name 
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.getUserByName(UserDao.java:69)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:41)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:23:54 ERROR UserDao:54 - Error! Can't add user
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.addUser(UserDao.java:44)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:48)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:23:54 DEBUG UserDao:59 - Connection for addUser was successfully close
+2019-05-13 01:23:54 ERROR RegistrationServlet:57 - Can't add user in database, zero rows changes after sql query
+2019-05-13 01:24:06 ERROR UserDao:84 - Can't get user by name 
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.getUserByName(UserDao.java:69)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:41)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:24:06 ERROR UserDao:54 - Error! Can't add user
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.addUser(UserDao.java:44)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:48)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:24:06 DEBUG UserDao:59 - Connection for addUser was successfully close
+2019-05-13 01:24:06 ERROR RegistrationServlet:57 - Can't add user in database, zero rows changes after sql query
+2019-05-13 01:25:54 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:25:54 DEBUG UserDao:51 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-13 01:25:54 DEBUG UserDao:59 - Connection for addUser was successfully close
+2019-05-13 01:25:54 DEBUG RegistrationServlet:55 - User with name luba2 was registered
+2019-05-13 01:26:13 ERROR UserDao:84 - Can't get user by name 
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.getUserByName(UserDao.java:69)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:41)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:26:13 ERROR UserDao:54 - Error! Can't add user
+java.sql.SQLNonTransientConnectionException: No operations allowed after connection closed.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:110)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:73)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:73)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1674)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1590)
+	at dao.UserDao.addUser(UserDao.java:44)
+	at servlet.RegistrationServlet.doPost(RegistrationServlet.java:48)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations allowed after connection closed.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.NativeSession.checkClosed(NativeSession.java:1263)
+	at com.mysql.cj.jdbc.ConnectionImpl.checkClosed(ConnectionImpl.java:575)
+	at com.mysql.cj.jdbc.ConnectionImpl.prepareStatement(ConnectionImpl.java:1605)
+	... 27 more
+2019-05-13 01:26:13 DEBUG UserDao:59 - Connection for addUser was successfully close
+2019-05-13 01:26:13 ERROR RegistrationServlet:57 - Can't add user in database, zero rows changes after sql query
+2019-05-13 01:26:43 DEBUG UserDao:72 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:26:43 DEBUG LoginServlet:56 - User with id 34 logged in system like user
+2019-05-13 01:26:43 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 01:34:21 DEBUG UserDao:66 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:34:21 DEBUG UserDao:52 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-13 01:34:21 DEBUG RegistrationServlet:55 - User with name luba3 was registered
+2019-05-13 01:34:33 DEBUG UserDao:66 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:34:33 DEBUG UserDao:52 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-13 01:34:33 DEBUG RegistrationServlet:55 - User with name luba4 was registered
+2019-05-13 01:34:49 DEBUG UserDao:66 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:35:04 DEBUG UserDao:66 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:35:04 DEBUG UserDao:52 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-13 01:35:04 DEBUG RegistrationServlet:55 - User with name luba5 was registered
+2019-05-13 01:35:13 DEBUG UserDao:66 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 01:35:13 DEBUG LoginServlet:56 - User with id 37 logged in system like user
+2019-05-13 01:35:13 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 16:43:56 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 16:43:56 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 16:44:40 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 16:44:40 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 16:44:53 DEBUG UserDao:158 - 
+2019-05-13 16:44:53 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 16:47:06 DEBUG UserDao:158 - 
+2019-05-13 16:47:06 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 16:47:18 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 16:47:18 DEBUG UserDao:158 - 
+2019-05-13 16:47:18 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 16:47:35 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 16:47:35 DEBUG UserDao:158 - 
+2019-05-13 16:47:35 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 16:48:01 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 16:48:08 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 16:48:29 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 16:48:29 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 17:00:31 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:00:31 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 17:00:36 DEBUG UserDao:158 - 
+2019-05-13 17:00:36 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:00:48 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:00:49 DEBUG UserDao:158 - 
+2019-05-13 17:00:49 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:03:44 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:03:44 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 17:05:33 DEBUG UserDao:158 - 
+2019-05-13 17:05:33 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:13:49 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:13:49 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 17:13:54 DEBUG UserDao:158 - 
+2019-05-13 17:13:54 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:14:05 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:14:05 DEBUG UserDao:158 - 
+2019-05-13 17:14:05 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:16:15 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:16:15 DEBUG UserDao:158 - 
+2019-05-13 17:16:15 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:19:26 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:19:26 DEBUG UserDao:158 - 
+2019-05-13 17:19:26 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:21:14 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:21:14 DEBUG UserDao:158 - 
+2019-05-13 17:21:14 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:22:34 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:22:34 DEBUG UserDao:158 - 
+2019-05-13 17:22:34 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:22:35 DEBUG UserDao:158 - 
+2019-05-13 17:22:35 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:22:38 DEBUG UserDao:158 - 
+2019-05-13 17:22:38 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:23:01 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:23:01 DEBUG UserDao:158 - 
+2019-05-13 17:23:01 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:23:04 DEBUG UserDao:158 - 
+2019-05-13 17:23:04 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:25:15 DEBUG UserDao:158 - 
+2019-05-13 17:25:15 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 17:25:23 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 17:25:23 DEBUG UserDao:158 - 
+2019-05-13 17:25:23 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 18:22:37 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 18:22:37 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 18:22:40 DEBUG UserDao:158 - 
+2019-05-13 18:22:40 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 18:22:49 DEBUG UserDao:158 - 
+2019-05-13 18:22:49 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 18:22:57 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 18:22:57 DEBUG UserDao:158 - 
+2019-05-13 18:22:57 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 18:23:02 DEBUG UserDao:158 - 
+2019-05-13 18:23:02 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-13 18:23:10 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 18:33:09 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 18:33:09 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 18:33:12 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 18:34:02 DEBUG UserDao:38 - INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);
+2019-05-13 18:34:02 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 18:40:18 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 18:40:18 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 18:40:19 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 18:42:58 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 18:42:58 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 18:43:00 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 18:43:19 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-13 18:47:03 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-13 18:47:03 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-13 18:47:06 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 00:57:17 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 00:57:17 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 00:57:21 DEBUG UserDao:158 - 
+2019-05-14 00:57:21 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:57:29 DEBUG UserDao:158 - 
+2019-05-14 00:57:29 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:57:41 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 00:57:41 DEBUG UserDao:158 - 
+2019-05-14 00:57:41 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:57:50 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 00:57:50 DEBUG UserDao:158 - 
+2019-05-14 00:57:50 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:57:58 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 00:57:58 DEBUG UserDao:158 - 
+2019-05-14 00:57:58 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:58:05 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 00:58:05 DEBUG UserDao:158 - 
+2019-05-14 00:58:05 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:58:16 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 00:58:16 DEBUG UserDao:158 - 
+2019-05-14 00:58:16 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:58:24 DEBUG UserDao:158 - 
+2019-05-14 00:58:24 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 00:58:37 DEBUG UserDao:158 - 
+2019-05-14 00:58:37 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:04:43 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 01:04:44 DEBUG UserDao:158 - 
+2019-05-14 01:04:44 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:04:47 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 01:04:47 DEBUG UserDao:158 - 
+2019-05-14 01:04:47 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:04:49 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 01:04:49 DEBUG UserDao:158 - 
+2019-05-14 01:04:49 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:04:52 DEBUG UserDao:158 - 
+2019-05-14 01:04:52 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:04:58 DEBUG UserDao:158 - 
+2019-05-14 01:04:58 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:09:02 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 01:09:02 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 01:09:08 DEBUG UserDao:158 - 
+2019-05-14 01:09:09 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:10:16 DEBUG UserDao:158 - 
+2019-05-14 01:10:16 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:18:38 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 01:18:38 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 01:18:39 DEBUG UserDao:158 - 
+2019-05-14 01:18:39 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:18:47 DEBUG UserDao:158 - 
+2019-05-14 01:18:47 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:18:51 DEBUG UserDao:158 - 
+2019-05-14 01:18:51 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:19:02 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 01:19:02 DEBUG UserDao:158 - 
+2019-05-14 01:19:02 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:19:08 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 01:19:08 DEBUG UserDao:158 - 
+2019-05-14 01:19:08 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:19:15 DEBUG UserDao:158 - 
+2019-05-14 01:19:15 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 01:19:30 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 01:19:55 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 01:20:04 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 01:54:45 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 01:54:49 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 01:57:22 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 01:57:26 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:01:12 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:01:14 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:01:23 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:02:53 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:10:41 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:10:43 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:18:08 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:26:01 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:26:14 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 02:26:14 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 02:26:16 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:26:21 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:29:46 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:29:51 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:29:57 DEBUG UserDao:158 - 
+2019-05-14 02:29:57 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 02:30:01 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:32:04 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 02:32:04 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 02:32:05 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:32:13 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:35:31 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:35:48 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 02:35:48 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 02:35:49 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:35:53 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:37:17 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:37:33 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 02:37:33 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 02:37:34 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:37:41 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:53:19 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 02:53:19 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 02:53:21 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:53:30 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:53:58 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 02:53:59 ERROR UserDao:101 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:99)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:29)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 02:53:59 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:54:34 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:55:19 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 02:55:19 ERROR UserDao:101 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:99)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:29)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 02:55:19 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:59:23 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 02:59:23 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 02:59:25 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 02:59:31 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 02:59:58 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 02:59:58 ERROR UserDao:100 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:98)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:29)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 02:59:58 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:02:13 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:02:13 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:02:14 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:02:16 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 03:02:37 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:02:37 ERROR UserDao:100 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:98)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:29)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 03:02:37 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:07:16 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:07:16 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:07:20 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:07:26 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 03:07:50 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:07:50 ERROR UserDao:100 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:98)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:29)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 03:07:50 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:09:14 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:09:14 ERROR UserDao:100 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:98)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:29)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 03:09:14 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:13:43 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:13:43 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:13:44 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:13:46 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 03:14:14 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:14:14 ERROR UserDao:104 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:98)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:31)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 03:14:14 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:15:44 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:15:44 ERROR UserDao:105 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:103)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:31)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 03:15:44 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:15:47 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 03:16:53 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:16:53 ERROR UserDao:105 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:103)
+	at servlet.admin.UpdateTableGoodsServlet.doPost(UpdateTableGoodsServlet.java:31)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:660)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:678)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:836)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1747)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2019-05-14 03:16:53 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:24:09 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:24:09 ERROR UserDao:105 - Wrong request updateGoods
+java.sql.SQLException: No value specified for parameter 5
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1132)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1057)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1377)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1042)
+	at dao.GoodDao.updateGoods(GoodDao.java:103)
+	at dao.GoodDao.main(GoodDao.java:113)
+2019-05-14 03:25:59 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:27:50 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:27:50 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:27:52 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:28:01 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 03:28:46 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:28:46 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:33:36 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:33:36 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:34:54 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 03:34:54 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:35:20 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:35:20 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:35:21 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:37:53 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:38:05 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:38:05 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:38:07 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:42:41 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:42:41 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:42:42 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:48:01 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:48:01 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:48:02 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:53:08 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 03:53:08 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 03:53:09 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:53:18 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 03:58:01 DEBUG UserDao:158 - 
+2019-05-14 03:58:01 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 03:58:05 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:02:19 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:02:30 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:02:30 DEBUG LoginServlet:63 - User with id 25 logged in system like admin
+2019-05-14 04:02:33 DEBUG UserDao:158 - 
+2019-05-14 04:02:33 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 04:02:38 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:07:11 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:07:11 DEBUG LoginServlet:63 - User with id 25 logged in system like admin
+2019-05-14 04:07:14 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:11:34 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:11:34 DEBUG LoginServlet:63 - User with id 25 logged in system like admin
+2019-05-14 04:11:35 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:15:34 DEBUG UserDao:38 - INSERT INTO madb.goods (name, description, price) VALUES (?, ?, ?);
+2019-05-14 04:15:34 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:15:42 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 04:15:53 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 04:15:53 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:15:59 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:17:14 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:17:14 DEBUG LoginServlet:63 - User with id 25 logged in system like admin
+2019-05-14 04:17:17 DEBUG UserDao:158 - 
+2019-05-14 04:17:17 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 04:17:33 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:17:33 DEBUG UserDao:158 - 
+2019-05-14 04:17:33 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 04:17:43 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:17:43 DEBUG UserDao:158 - 
+2019-05-14 04:17:43 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 04:17:45 DEBUG UserDao:158 - 
+2019-05-14 04:17:45 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 04:17:55 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:18:29 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;
+2019-05-14 04:19:00 DEBUG UserDao:91 - We update good, we send updateGood request
+2019-05-14 04:19:00 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:19:12 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:22:56 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:23:37 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:23:59 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:23:59 DEBUG LoginServlet:63 - User with id 25 logged in system like admin
+2019-05-14 04:24:00 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:24:11 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:29:31 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:29:41 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:29:42 DEBUG UserDao:52 - INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);
+2019-05-14 04:29:42 DEBUG RegistrationServlet:55 - User with name test was registered
+2019-05-14 04:29:53 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:29:53 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 04:29:53 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:34:47 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:34:47 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 04:34:47 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:35:26 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:35:26 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 04:35:26 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:46:58 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:46:58 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 04:46:58 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:47:36 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:47:36 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 04:47:36 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:52:22 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:52:29 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:52:29 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 04:52:30 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 04:57:55 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 04:57:55 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 04:57:55 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:00:04 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:00:04 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 05:00:04 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:02:08 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:02:08 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 05:02:08 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:05:31 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:05:31 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 05:05:31 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:07:46 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:07:46 DEBUG LoginServlet:55 - User with id 39 logged in system like user
+2019-05-14 05:07:46 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:10:51 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:10:51 DEBUG LoginServlet:56 - User with id 39 logged in system like user
+2019-05-14 05:10:51 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:11:00 INFO  MailService:55 - Сообщение отправленоjavax.mail.internet.MimeMessage@c779f04
+2019-05-14 05:12:18 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:12:18 DEBUG LoginServlet:56 - User with id 39 logged in system like user
+2019-05-14 05:12:18 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:12:28 INFO  MailService:55 - Сообщение отправленоjavax.mail.internet.MimeMessage@1967a5a
+2019-05-14 05:13:08 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:13:08 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 05:13:09 DEBUG UserDao:158 - 
+2019-05-14 05:13:09 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 05:13:18 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:13:36 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:16:13 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:16:13 DEBUG LoginServlet:56 - User with id 39 logged in system like user
+2019-05-14 05:16:13 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:16:26 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:16:36 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:16:36 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 05:16:39 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:19:02 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:19:06 DEBUG UserDao:158 - 
+2019-05-14 05:19:06 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 05:19:11 DEBUG UserDao:158 - 
+2019-05-14 05:19:11 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 05:19:16 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:20:40 DEBUG UserDao:89 - SELECT * FROM madb.users WHERE name = ?;
+2019-05-14 05:20:40 DEBUG LoginServlet:64 - User with id 25 logged in system like admin
+2019-05-14 05:20:43 DEBUG UserDao:158 - 
+2019-05-14 05:20:43 DEBUG UserDao:162 - We send sql getALLUsers: SELECT * FROM madb.users
+2019-05-14 05:20:47 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:20:53 DEBUG UserDao:74 - SELECT * FROM madb.goods;
+2019-05-14 05:21:03 INFO  MailService:55 - Сообщение отправленоjavax.mail.internet.MimeMessage@79bae990
+2019-05-14 05:21:29 DEBUG UserDao:53 - SELECT * FROM madb.goods WHERE id = ?;

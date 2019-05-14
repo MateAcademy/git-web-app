@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import dao.UserDao;
 import model.User;
@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(value = "/editDeleteUsersServlet")
-
 public class EditDeleteUsersServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,6 +20,11 @@ public class EditDeleteUsersServlet extends HttpServlet {
         UserDao userDao = new UserDao();
         List<User> list = userDao.getAllUsers();
         request.setAttribute("users", list);
-        request.getRequestDispatcher("usersEditDelete.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/usersEditDelete.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
     }
 }

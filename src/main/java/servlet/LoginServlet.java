@@ -40,15 +40,15 @@ public class LoginServlet extends HttpServlet {
 //сравниваем хеш из БД и тот что мы сделали
             if (user.getPassword().equals(hashPasswordFromForm)) {
 
-                HttpSession session =req.getSession(); //из рекв достаем сессию
+                HttpSession session = req.getSession(); //из рекв достаем сессию
 //                session.setAttribute("sessionUser", user.getName());
-
                 ServletContext servletContext = req.getServletContext();
 
-                if (session.getAttribute("sessionUser") == null) {
+//                if (session.getAttribute("sessionUser") == null) {
+                    session.setAttribute("user", user);
                     session.setAttribute("sessionUser", user.getName());
                     servletContext.setAttribute("name", user.getName());
-                }
+//                }
 
                 req.setAttribute("name", user.getName());
                 if (user.getRole().equals(2)) {
@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
                     session.setMaxInactiveInterval(60);
 
                     logger.debug("User with id " + user.getId() + " logged in system like admin");
-                    req.getRequestDispatcher("adminPage.jsp").forward(req, resp);
+                    req.getRequestDispatcher("admin/adminPage.jsp").forward(req, resp);
                     return;
                 }
             }

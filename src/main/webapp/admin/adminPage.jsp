@@ -12,7 +12,7 @@
 <head>
     <title>Admin</title>
 </head>
-<body style="background-image:url(girl.jpg)">
+<body style="background-image:url(../girl.jpg)">
 <style>
     .b1 {
         background: navy; /* Синий цвет фона */

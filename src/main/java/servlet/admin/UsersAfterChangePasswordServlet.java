@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import dao.UserDao;
 import model.User;
@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet(name = "ShowUsersAfterEditServlet", value = "/ShowUsersAfterEdit")
-public class ShowUsersAfterEditServlet extends HttpServlet {
+@WebServlet(value = "/usersAfterChange")
+public class UsersAfterChangePasswordServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("login");
@@ -33,7 +33,7 @@ public class ShowUsersAfterEditServlet extends HttpServlet {
             List<User> list = userDao.getAllUsers();
 
             request.setAttribute("users", list);
-            request.getRequestDispatcher("usersEditDelete.jsp").forward(request, response);
+            request.getRequestDispatcher("admin/usersEditDelete.jsp").forward(request, response);
         }
     }
 }

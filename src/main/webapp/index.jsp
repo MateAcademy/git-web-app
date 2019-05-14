@@ -3,7 +3,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <html>
 <head charset="utf-8">
     <title>Web application Мэйт Академии</title>
@@ -15,9 +14,7 @@
         font-size: 9pt; /* Размер шрифта в пунктах */
     }
 </style>
-
 <body style="background-image:url(girl.jpg)">
-
 <center>
     Форма входа:
 <br>

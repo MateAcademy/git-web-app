@@ -45,7 +45,7 @@ public class RegistrationServlet extends HttpServlet {
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         } else {
 
-            int howManyUsersChanged = userDao.addUser(new User(name, password, "test@test.ru", 2));
+            int howManyUsersChanged = userDao.addUser(new User(name, password, "s.klunniy@gmail.com", 2));
 
             if (howManyUsersChanged == 1) {
                 req.setAttribute("sessionUser", session.getAttribute("sessionUser"));

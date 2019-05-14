@@ -7,7 +7,7 @@
     <title>allGoodsPageForAdmin</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body style="background-image:url(fon.jpg);  color:#f8f9fa; font-weight: normal ">
+<body style="background-image:url(../fon.jpg);  color:#f8f9fa; font-weight: normal ">
 <h3>Приветствую тебя администратор, здесь ты можешь редактировать, добавлять и удалять товары в базе данных:</h3>
 
 
@@ -29,7 +29,7 @@
                 <td><c:out value="${good.getDescription()}"/></td>
                 <td><c:out value="${good.getPrice()}"/></td>
                 <td><a href='buy?id=${good.getId()}'>Купить!</a></td>
-                <td><a href='buy?id=${good.getId()}'>Edit!</a></td>
+                <td><a href='redactGood?id=${good.getId()}'>Edit!</a></td>
                 <td><a href='deleteGoods?id=${good.getId()}'>remove!</a></td>
             </tr>
         </с:forEach>
@@ -37,9 +37,9 @@
 </div>
 
 <br>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='addGood.jsp'">Админ может добавить товар!</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='admin/addGood.jsp'">Админ может добавить товар!</button>
 
 <br>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/'">Back to main</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/onAdminPage'">Back to edit or delete page</button>
 </body>
 </html>

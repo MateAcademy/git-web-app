@@ -21,7 +21,7 @@
     </style>
 
 </head>
-<body style="background-image:url(fon.jpg); color:#ffffff">
+<body style="background-image:url(../fon.jpg); color:#ffffff">
 <div class="w3-container w3-left-align">
     <h2><c:out value="${message}"/></h2>
     <h1>List of users</h1>
@@ -44,12 +44,12 @@
                 <td class="dino" ><c:out value="${user.id}"/></td>
                 <td class="dino" ><c:out value="${user.name}"/></td>
                 <td class="dino" ><c:out value="${user.password}"/></td>
-                <td class="dino" ><a href='/edit?name=${user.name}'>edit all</a></td>
+                <td class="dino" ><a href='/edit?name=${user.name}'>edit</a></td>
                 <td class="dino" ><a href='/delete?name=${user.name}&password=${user.password}'>delete</a></td>
             </tr>
         </c:forEach>
     </table>
 <br/>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/'">Back to main</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/onAdminPage'">Back to edit or delete page </button>
 </body>
 </html>

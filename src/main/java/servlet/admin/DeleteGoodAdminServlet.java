@@ -1,4 +1,4 @@
-package servlet;
+package servlet.admin;
 
 import dao.GoodDao;
 import model.Good;
@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "DeleteGoodAdminServlet", value = "/deleteGoods")
+@WebServlet(value = "/deleteGoods")
 public class DeleteGoodAdminServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,6 +24,6 @@ public class DeleteGoodAdminServlet extends HttpServlet {
         List<Good> allGoods = goodDao.getAllGoods();
 
         request.setAttribute("goods", allGoods);
-        request.getRequestDispatcher("allGoodsPageForAdmin.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/goodsPageForAdmin.jsp").forward(request, response);
     }
 }

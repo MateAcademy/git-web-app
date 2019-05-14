@@ -13,7 +13,7 @@
     <title>Edit of users:</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body style="background-image:url(fon.jpg); color:#ffffff">
+<body style="background-image:url(../fon.jpg); color:#ffffff">
 <div class="w3-container w3-left-align">
     <h2><c:out value="${message}"/></h2>
     <h1>Edit all user data:</h1>
@@ -26,7 +26,7 @@
             <th>Edit</th>
 
         </tr>
-        <tr><form action="ShowUsersAfterEdit">
+        <tr><form action="usersAfterChange">
             <th><input type="text" name="login" value= "${name}" disabled  /></th>
             <th><input type="text" name="login" value= "${name}" hidden="false" /></th>
             <th><input type="text" name="password" value=" Введите новый пароль "></th>
@@ -36,6 +36,6 @@
     </table>
 </div><br />
 
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/'">Back to main</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='..'">Back to main</button>
 </body>
 </html>

@@ -14,7 +14,7 @@ public class DbConnector {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url, name, pass);
+        final Connection connection = DriverManager.getConnection(url, name, pass);
             return connection;
         } catch (Exception e) {
             e.printStackTrace();
