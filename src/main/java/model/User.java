@@ -1,5 +1,7 @@
 package model;
 
+import utils.HashUtil;
+
 import java.util.Objects;
 
 public class User {
@@ -8,10 +10,19 @@ public class User {
     private String password;
     private String email;
     private Integer role;
+    private String salt;
+
+    public User(Long id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.salt = HashUtil.getRandomSalt();
+    }
 
     public User(String name, String password) {
         this.name = name;
         this.password = password;
+        this.salt = HashUtil.getRandomSalt();
     }
 
     public User(String name, String password, String email, Integer role) {
@@ -20,15 +31,16 @@ public class User {
         this.email = email;
     }
 
-    public User(Long id, String name, String password, Integer role) {
+    public User(Long id, String name, String password, Integer role, String salt) {
         this.id = id;
         this.name = name;
-        this.password=password;
-        this.role=role;
+        this.password = password;
+        this.role = role;
+        this.salt = salt;
     }
 
-    public User(Long id, String name,  String password, String email, Integer role) {
-        this(id, name, password, role);
+    public User(Long id, String name, String password, String email, Integer role, String salt) {
+        this(id, name, password, role, salt);
         this.email = email;
     }
 
@@ -72,6 +84,14 @@ public class User {
         this.role = role;
     }
 
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,14 +99,15 @@ public class User {
         User user = (User) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(name, user.name) &&
-                Objects.equals(email, user.email) &&
                 Objects.equals(password, user.password) &&
-                Objects.equals(role, user.role);
+                Objects.equals(email, user.email) &&
+                Objects.equals(role, user.role) &&
+                Objects.equals(salt, user.salt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, email, password, role);
+        return Objects.hash(id, name, password, email, role, salt);
     }
 
     @Override
@@ -94,9 +115,10 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 ", role=" + role +
+                ", salt='" + salt + '\'' +
                 '}';
     }
 }

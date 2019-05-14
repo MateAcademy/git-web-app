@@ -2,17 +2,27 @@ package dao;
 
 import model.User;
 import org.apache.log4j.Logger;
+import utils.HashUtil;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class UserDao {
-    Connection connection = DbConnector.connect();
-    private static final Logger logger = Logger.getLogger(UserDao.class);
 
-//    public int addUser(User user) {
+    private static final Logger logger = Logger.getLogger(UserDao.class);
+    private final Connection connection;
+
+    public UserDao() {
+        this.connection = DbConnector.connect();
+    }
+
+    //    public int addUser(User user) {
 //        try {
 //            Statement statement = connection.createStatement();
 //            String name = user.getName();
@@ -31,13 +41,14 @@ public class UserDao {
 
     public int addUser(User user) {
         try {
-            String sql = "INSERT INTO madb.users (name , password, email, role) VALUES (?, ?, ?, ?);";
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, user.getName());
-            preparedStatement.setString(2, user.getPassword());
-            preparedStatement.setString(3, user.getEmail());
-            preparedStatement.setInt(4, user.getRole());
-            int result = preparedStatement.executeUpdate();
+            String sql = "INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, user.getName());
+            statement.setString(2, HashUtil.getSHA512SecurePassword(user.getPassword(), user.getSalt()));
+            statement.setString(3, user.getEmail());
+            statement.setInt(4, user.getRole());
+            statement.setString(5, user.getSalt());
+            int result = statement.executeUpdate();
             logger.debug(sql);
             return result;
         } catch (SQLException e) {
@@ -46,24 +57,45 @@ public class UserDao {
         }
     }
 
-    public Optional<User> getUserByName(String name, String pass) {
+//    public int addUser(User user){
+//        String sql = "INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);";
+//        try (PreparedStatement statement = connection.prepareStatement(sql)){
+//            statement.setString(1, user.getName());
+//            statement.setString(2, HashUtil.getSHA512SecurePassword(user.getPassword(), user.getSalt()));
+//            statement.setString(3, user.getEmail());
+//            statement.setInt(4, user.getRole());
+//            statement.setString(5, user.getSalt());
+//            int result = statement.executeUpdate();
+//            logger.debug(sql);
+//            return result;
+//        } catch (SQLException e) {
+//            logger.error("Error! Can't add user", e);
+//            return 0;
+//        }finally {
+//            try {
+//                connection.close();
+//                logger.debug("Connection for addUser was successfully close");
+//            } catch (SQLException e) {
+//                logger.error("Error! Connection for addUser wasn't close", e);
+//            }
+//        }
+//    }
+    public Optional<User> getUserByName(String name) {
         try {
-            final String sql = "SELECT * FROM madb.users WHERE name = ? and password = ?;";
+            final String sql = "SELECT * FROM madb.users WHERE name = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, name);
-            preparedStatement.setString(2, pass);
             ResultSet resultSet = preparedStatement.executeQuery();
             logger.debug(sql);
             if (resultSet.next()) {
-                Long userId = resultSet.getLong(1);
-                String nameUser = resultSet.getString(2);
-                String password = resultSet.getString(3);
-                String email = resultSet.getString(4);
-                Integer role = resultSet.getInt(5);
-                User user = new User(userId, nameUser, password, email, role);
-
+                Long userId = resultSet.getLong("id");
+                String nameUser = resultSet.getString("name");
+                String password = resultSet.getString("password");
+                String email = resultSet.getString("email");
+                Integer role = resultSet.getInt("role");
+                String salt = resultSet.getString("salt");
+                User user = new User(userId, nameUser, password, email, role, salt);
                 return Optional.of(user);
-
             }
         } catch (SQLException e) {
             logger.error("Can't get user by name ", e);
@@ -108,15 +140,11 @@ public class UserDao {
             String sql = "SELECT * FROM madb.users WHERE name='" + newUser.getName() + "' and password = '" + newUser.getPassword() + "';";
             boolean userInDatabase = false;
             ResultSet resultSet = statement.executeQuery(sql);
-
             while (resultSet.next()) {
                 if (resultSet.getString("name").equals(newUser.getName()) & resultSet.getString("password").equals(newUser.getPassword())) {
                     userInDatabase = true;
                 }
-
             }
-            System.out.println(sql);
-            System.out.println("Есть ли такой User в базе данных: " + userInDatabase);
             return userInDatabase;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -124,45 +152,61 @@ public class UserDao {
         return false;
     }
 
-    public List<User> getUsers() {
+    public List<User> getAllUsers() {
         List<User> list = new ArrayList<>();
         try {
+            logger.debug("");
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM madb.users";
             ResultSet resultSet = statement.executeQuery(sql);
-
+            logger.debug("We send sql getALLUsers: " + sql);
             while (resultSet.next()) {
+                Long id = resultSet.getLong("id");
                 String name = resultSet.getString("name");
                 String password = resultSet.getString("password");
-                User user = new User(name, password);
+                User user = new User(id, name, password);
                 list.add(user);
             }
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("Error, we can't getAllUsers", e);
         }
         return list;
     }
 
     public void delUser(User user) {
         try {
-            String query = "DELETE FROM madb.users WHERE name='" + user.getName()+"' and password = '"+user.getPassword()+"';";
+            String query = "DELETE FROM madb.users WHERE name='" + user.getName() + "' and password = '" + user.getPassword() + "';";
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void editUser(String password, String name) {
+    public void editUser(String name, String password) {
         try {
             String query = "UPDATE users SET password = '" + password + "' WHERE name='" + name + "';";
             Statement statement = connection.createStatement();
             statement.executeUpdate(query);
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    //TODO пусть возвращает кол-во измененных строк, если 0 или не 1 то что-то с этим делать
+    public void updateUser(User user) {
+        try {
+            logger.debug("We update user, we send updateUser request");
+            PreparedStatement statement = DbConnector.connect()
+                    .prepareStatement("UPDATE users SET name=?, password=?, email=?, role=?, salt=?  WHERE name=?");
+            statement.setString(1, user.getName());
+            statement.setString(2, HashUtil.getSHA512SecurePassword(user.getPassword(), user.getSalt()));
+            statement.setString(3, user.getEmail());
+            statement.setInt(4, user.getRole());
+            statement.setString(5, user.getSalt());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("wrong request data" + e);
         }
     }
 }

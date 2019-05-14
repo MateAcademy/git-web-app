@@ -12,7 +12,7 @@
 <head>
     <title>Admin</title>
 </head>
-<body style="background-image:url(girl.jpg)">
+<body style="background-image:url(../girl.jpg)">
 <style>
     .b1 {
         background: navy; /* Синий цвет фона */
@@ -23,9 +23,15 @@
 Приветствую тебя администратор:  <c:out value="${name}"/>!
 
 <br>
-<form action="EditDeleteServlet" method="post">
+<form action="editDeleteUsersServlet" method="post">
     <h3> Здесь Вы можете редактировать или удалять пользователей из БД:</h3>
     <input type="submit" value="Edit / Delete" class="b1">
+</form>
+
+<br>
+<form action="goods" method="post">
+    <h3> Здесь Вы можете редактировать или удалять твары из БД:</h3>
+    <input type="submit" value="Goods Edit / Goods Delete" class="b1">
 </form>
 
 </body>

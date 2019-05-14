@@ -16,6 +16,15 @@ public class GoodDao {
 
     Connection connection = DbConnector.connect();
     private static final Logger logger = Logger.getLogger(UserDao.class);
+    public void delGood(Integer id) {
+        try {
+            String query = "DELETE FROM madb.goods where id = " + id + ";";
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public int addGood(Good good) {
         try {
@@ -75,5 +84,21 @@ public class GoodDao {
             logger.error("Can't get all goods ", e);
         }
         return allGoods;
+    }
+
+    public void updateGoods(Good good) {
+        try {
+            logger.debug("We update good, we send updateGood request");
+            PreparedStatement statement = DbConnector.connect()
+                    .prepareStatement("UPDATE madb.goods SET id=?, name=?, description=?, price=?  WHERE id=?");
+            statement.setLong(1, good.getId());
+            statement.setString(2, good.getName());
+            statement.setString(3, good.getDescription());
+            statement.setDouble(4, good.getPrice());
+            statement.setLong(5, good.getId());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            logger.error("Wrong request updateGoods", e);
+        }
     }
 }

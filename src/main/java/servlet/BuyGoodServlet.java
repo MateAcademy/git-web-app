@@ -15,7 +15,7 @@ import java.io.IOException;
 @WebServlet(value = "/buy")
 public class BuyGoodServlet extends HttpServlet {
 
-    private static  MailService mailService = new MailService();
+    private static MailService mailService = new MailService();
     private static final CodeDao codeDao = new CodeDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,16 +33,17 @@ public class BuyGoodServlet extends HttpServlet {
         } else {
             response.getWriter().print("Оплата отклонена");
         }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//       Long goodId = (Long)request.getAttribute("id");
-       Long goodId = Long.parseLong(request.getParameter("id"));
-       User user = (User) request.getSession().getAttribute("user");
-       String randomeCode = mailService.sendEmailWithCode(user.getEmail());
-       Code code = new Code(randomeCode, user.getId(), goodId);
-       codeDao.addCode(code);
+        Long goodId = Long.parseLong(request.getParameter("id"));
+
+        User user = (User) request.getSession().getAttribute("user");
+
+
+        String randomCode = mailService.sendEmailWithCode(user.getEmail());
+        Code code = new Code(randomCode, user.getId(), goodId);
+        codeDao.addCode(code);
         request.setAttribute("good_id", goodId);
         request.getRequestDispatcher("buyConfirmation.jsp").forward(request, response);
     }
