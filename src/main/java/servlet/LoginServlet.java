@@ -70,4 +70,9 @@ public class LoginServlet extends HttpServlet {
         req.setAttribute("error", "Пользователь с таким именем / паролем не найден!" );
         req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("admin/adminPage.jsp").forward(req, resp);
+    }
 }
