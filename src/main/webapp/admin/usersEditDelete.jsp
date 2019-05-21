@@ -45,7 +45,7 @@
                 <td class="dino" ><c:out value="${user.name}"/></td>
                 <td class="dino" ><c:out value="${user.password}"/></td>
                 <td class="dino" ><a href='/editPassword?name=${user.name}'>edit</a></td>
-                <td class="dino" ><a href='/delete?name=${user.name}&password=${user.password}'>delete</a></td>
+                <td class="dino" ><a href='/delete?name=${user.name}&id=${user.id}'>delete</a></td>
             </tr>
         </c:forEach>
     </table>

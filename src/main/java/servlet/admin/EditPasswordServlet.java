@@ -11,13 +11,13 @@ import java.io.IOException;
 public class EditPasswordServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
+//        request.setCharacterEncoding("UTF-8");
+//        response.setContentType("text/html");
+//        response.setCharacterEncoding("UTF-8");
 
         String name = request.getParameter("name");
 
         request.setAttribute("name", name);
-        request.getRequestDispatcher("admin/usersEdit.jsp").forward(request, response);
+        request.getRequestDispatcher("admin/usersEditPassword.jsp").forward(request, response);
     }
 }
