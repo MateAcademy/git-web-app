@@ -24,7 +24,7 @@
 
 <c:out value="${error}"/>
 
-<form action="login" method="post">
+<form action="/login" method="post">
     <h3> Здесь Вы можете войти на сайт (для зарегистрированных пользователей):</h3>
     <p>Имя: <input type="text" name="name" value=" Введите свое имя">
         Пароль: <input type="text" name="password" value=" Введите здесь свой пароль"></p>

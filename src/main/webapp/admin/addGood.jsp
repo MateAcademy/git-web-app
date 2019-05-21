@@ -28,7 +28,7 @@
 
 
 <br>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='../goods'">Вернуться обратно на страничку! </button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin/goods'">Вернуться обратно на страничку! </button>
 
 </body>
 </html>

@@ -1,7 +1,9 @@
 package servlet.admin;
 
 import dao.GoodDao;
+import dao.GoodDaoHibImpl;
 import model.Good;
+import model.GoodHib;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,19 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(value = "/deleteGoods")
+@WebServlet(value = "/admin/deleteGoods")
 public class DeleteGoodAdminServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String id = request.getParameter("id");
         Integer code = Integer.valueOf(id);
 
-        GoodDao goodDao = new GoodDao();
-        goodDao.delGood(code);
+//        GoodDao goodDao = new GoodDao();
+//        goodDao.delGood(code);
 
-        List<Good> allGoods = goodDao.getAllGoods();
+        GoodDaoHibImpl.deleteGood(code);
+
+//        List<Good> allGoods = goodDao.getAllGoods();
+        List<GoodHib> allGoods = GoodDaoHibImpl.getAllGoods();
+
 
         request.setAttribute("goods", allGoods);
-        request.getRequestDispatcher("admin/goodsPageForAdmin.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/goodsPageForAdmin.jsp").forward(request, response);
     }
 }

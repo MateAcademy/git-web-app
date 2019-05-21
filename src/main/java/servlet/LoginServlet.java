@@ -19,27 +19,20 @@ public class LoginServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(LoginServlet.class);
 
+
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html");
 
         String name = req.getParameter("name");
         String password = req.getParameter("password");
 
-//проверяем есть ли такой пользователь по имени - в дальнейшем переделать можно на проверку по email
         User userFromDb = UserDaoHibImpl.getUserByLogin(name);
         if (userFromDb != null) {
-//если есть то делаем хеш код из пароля что мы ввели и соли из б/д
-            //       if (userFromDb.isPresent()) {
-            //          User user = userFromDb.get();
+
             String hashPassword = HashUtil.getSHA512SecurePassword(password, userFromDb.getSalt());
             if (userFromDb.getPassword().equals(hashPassword)) {
-
-                HttpSession session = req.getSession(); //из рекв достаем сессию
-                session.setAttribute("sessionUser", userFromDb.getName());
+                HttpSession session = req.getSession();
                 ServletContext servletContext = req.getServletContext();
 
                 if (session.getAttribute("sessionUser") == null) {
@@ -55,10 +48,11 @@ public class LoginServlet extends HttpServlet {
                     return;
                 } else if (userFromDb.getRole().getName().equals("admin")) {
                     req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
+                    req.setAttribute("user", session.getAttribute("user"));
                     req.setAttribute("servletContext", servletContext.getAttribute("name"));
                     session.setMaxInactiveInterval(60);
                     logger.debug("User with id " + userFromDb.getId() + " logged in system like admin");
-                    req.getRequestDispatcher("admin/adminPage.jsp").forward(req, resp);
+                    req.getRequestDispatcher("/admin/adminPage.jsp").forward(req, resp);
                     return;
                 }
             }

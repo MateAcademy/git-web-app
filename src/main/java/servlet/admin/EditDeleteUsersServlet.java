@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(value = "/editDeleteUsersServlet")
+@WebServlet(value = "/admin/editDeleteUsersServlet")
 public class EditDeleteUsersServlet extends HttpServlet {
 
     final static Logger logger = Logger.getLogger(EditDeleteUsersServlet.class);
@@ -29,7 +29,7 @@ public class EditDeleteUsersServlet extends HttpServlet {
         List<User> list = UserDaoHibImpl.getAllUsers();
 
         request.setAttribute("users", list);
-        request.getRequestDispatcher("admin/usersEditDelete.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/usersEditDelete.jsp").forward(request, response);
     }
 
     @Override

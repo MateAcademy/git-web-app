@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet(value = "/usersAfterChange")
+@WebServlet(value = "/admin/usersAfterChange")
 public class UsersAfterChangePasswordServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +29,7 @@ public class UsersAfterChangePasswordServlet extends HttpServlet {
             UserDaoHibImpl.updatePassword(user, hashPasswordFromForm);
             List<User> list = UserDaoHibImpl.getAllUsers();
             request.setAttribute("users", list);
-            request.getRequestDispatcher("admin/usersEditDelete.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin/usersEditDelete.jsp").forward(request, response);
         }
     }
 }

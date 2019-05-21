@@ -28,16 +28,16 @@
                 <td><c:out value="${good.getName()}"/></td>
                 <td><c:out value="${good.getDescription()}"/></td>
                 <td><c:out value="${good.getPrice()}"/></td>
-                <td><a href='buy?id=${good.getId()}'>Купить!</a></td>
-                <td><a href='redactGood?id=${good.getId()}'>Edit!</a></td>
-                <td><a href='deleteGoods?id=${good.getId()}'>remove!</a></td>
+                <td><a href='/buy?id=${good.getId()}'>Купить!</a></td>
+                <td><a href='/admin/redactGood?id=${good.getId()}'>Edit!</a></td>
+                <td><a href='/admin/deleteGoods?id=${good.getId()}'>remove!</a></td>
             </tr>
         </с:forEach>
     </table>
 </div>
 
 <br>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='admin/addGood.jsp'">Админ может добавить товар!</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin/addGood.jsp'">Админ может добавить товар!</button>
 
 <br>
 <button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/login'">Back to edit or delete page</button>

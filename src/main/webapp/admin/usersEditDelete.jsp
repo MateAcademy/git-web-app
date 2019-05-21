@@ -44,12 +44,12 @@
                 <td class="dino" ><c:out value="${user.id}"/></td>
                 <td class="dino" ><c:out value="${user.name}"/></td>
                 <td class="dino" ><c:out value="${user.password}"/></td>
-                <td class="dino" ><a href='/editPassword?name=${user.name}'>edit</a></td>
-                <td class="dino" ><a href='/delete?name=${user.name}&id=${user.id}'>delete</a></td>
+                <td class="dino" ><a href='/admin/editPassword?name=${user.name}'>edit</a></td>
+                <td class="dino" ><a href='/admin/delete?name=${user.name}&id=${user.id}'>delete</a></td>
             </tr>
         </c:forEach>
     </table>
 <br/>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/login'">Back to edit or delete page </button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin/adminPage.jsp'">Back to edit or delete page </button>
 </body>
 </html>

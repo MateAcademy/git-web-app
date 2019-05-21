@@ -1,8 +1,10 @@
 package initializer;
 
 //import dao.HibernateStorage;
+import dao.GoodDaoHibImpl;
 import dao.RoleDaoHibImpl;
 import dao.UserDaoHibImpl;
+import model.GoodHib;
 import model.Role;
 import model.User;
 import utils.HashUtil;
@@ -39,5 +41,13 @@ public class InitServlet extends HttpServlet {
         UserDaoHibImpl.add(admin1);
         UserDaoHibImpl.add(user1);
         UserDaoHibImpl.add(test1);
+
+        GoodHib goodHib = new GoodHib("пылесос", "русский", "200");
+        GoodHib goodHib2 = new GoodHib("телевизор", "украинский", "500");
+        GoodHib goodHi3 = new GoodHib("магнитафон", "японский", "700");
+        GoodDaoHibImpl.addGood(goodHib);
+        GoodDaoHibImpl.addGood(goodHib2);
+        GoodDaoHibImpl.addGood(goodHi3);
+        GoodDaoHibImpl.addGood(goodHib2);
     }
 }

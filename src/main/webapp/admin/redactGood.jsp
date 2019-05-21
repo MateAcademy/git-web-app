@@ -25,7 +25,7 @@
         </tr>
 </table>
 
-<form action="updateTableGoods" method="post">
+<form action="/admin/updateTableGoods" method="post">
     <h3> Новая информация:</h3>
     <h4>
         <p> Имя товара: <input type="text" name="name" value=" как называется товар"></p>

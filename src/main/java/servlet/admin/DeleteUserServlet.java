@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(value = "/delete")
+@WebServlet(value = "/admin/delete")
 public class DeleteUserServlet extends HttpServlet {
 
     @Override
@@ -24,6 +24,6 @@ public class DeleteUserServlet extends HttpServlet {
         List<User> list = UserDaoHibImpl.getAllUsers();
 
         req.setAttribute("users", list);
-        req.getRequestDispatcher("admin/usersEditDelete.jsp").forward(req, resp);
+        req.getRequestDispatcher("/admin/usersEditDelete.jsp").forward(req, resp);
     }
 }

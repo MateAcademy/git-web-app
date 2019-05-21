@@ -15,5 +15,6 @@
         <property name="show_sql">true</property>
         <mapping class="model.User"/>
         <mapping class="model.Role"/>
+        <mapping class="model.GoodHib"/>
     </session-factory>
 </hibernate-configuration>

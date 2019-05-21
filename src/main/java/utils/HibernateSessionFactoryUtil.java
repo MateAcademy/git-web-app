@@ -1,5 +1,6 @@
 package utils;
 
+import model.GoodHib;
 import model.Role;
 import model.User;
 import org.apache.log4j.Logger;
@@ -19,6 +20,7 @@ public class HibernateSessionFactoryUtil {
                 Configuration configuration = new Configuration().configure();
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Role.class);
+                configuration.addAnnotatedClass(GoodHib.class);
 
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
