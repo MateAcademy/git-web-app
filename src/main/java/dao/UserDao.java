@@ -61,7 +61,7 @@ public class UserDao {
 //        return list;
 //    }
 
-    public void delUser(User user) {
+    public void deleteUser(User user) {
         try {
             String query = "DELETE FROM madb.users WHERE name='" + user.getName() + "' and password = '" + user.getPassword() + "';";
             Statement statement = connection.createStatement();
@@ -71,7 +71,7 @@ public class UserDao {
         }
     }
 
-    public void editUser(String name, String password) {
+    public void editPasswordUser(String name, String password) {
         try {
             String query = "UPDATE users SET password = '" + password + "' WHERE name='" + name + "';";
             Statement statement = connection.createStatement();

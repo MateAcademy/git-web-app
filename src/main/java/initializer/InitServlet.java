@@ -17,11 +17,9 @@ import java.io.IOException;
 
 @WebServlet(value = "/init", loadOnStartup = 1)
 public class InitServlet extends HttpServlet {
+
     @Override
     public void init() throws ServletException {
-
-//        HibernateStorage userDao= new HibernateStorage();
-
         RoleDaoHibImpl roleDao = new RoleDaoHibImpl();
         Role admin = new Role("admin");
         Role user = new Role("user");
@@ -34,19 +32,12 @@ public class InitServlet extends HttpServlet {
 
         String pass= HashUtil.getSHA512SecurePassword("1111", salt);
 
-//        String passUser = HashUtil.getSHA512SecurePassword("1111", salt);
-//        String passTest = HashUtil.getSHA512SecurePassword("1111", salt);
-
         User admin1 = new User("admin", pass, "s.klunniy@gmail.com", admin, salt);
         User user1 = new User("user", pass, "s.klunniy@gmail.com", user, salt);
         User test1 = new User("test", pass , "s.klunniy@gmail.com", test, salt);
 
-//        userDao.add(admin1);
-//        userDao.add(user1);
-//        userDao.add(test1);
         UserDaoHibImpl.add(admin1);
         UserDaoHibImpl.add(user1);
         UserDaoHibImpl.add(test1);
-        System.out.println();
     }
 }
