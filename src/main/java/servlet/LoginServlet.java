@@ -22,13 +22,10 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         String name = req.getParameter("name");
         String password = req.getParameter("password");
 
-//        User userFromDb = UserDaoHibImpl.getUserByLogin(name);
         Optional<User> userFromDb = UserDaoHibImpl.getUserByLoginOptional(name);
-//        if (userFromDb != null) {
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
             String hashPassword = HashUtil.getSHA512SecurePassword(password, user.getSalt());
@@ -39,25 +36,12 @@ public class LoginServlet extends HttpServlet {
 //это для фильтра "sessionUser":
                 req.getSession().setAttribute("sessionUser", name);
                 req.getSession().setMaxInactiveInterval(60);
-//                HttpSession session = req.getSession();
-//                ServletContext servletContext = req.getServletContext();
-
-//                if (session.getAttribute("sessionUser") == null) {
-//                session.setAttribute("user", userFromDb);
-//                session.setAttribute("sessionUser", user.getName());
-//                servletContext.setAttribute("name", user.getName());
-//                }
-
 
                 if (user.getRole().getName().equals("user")) {
                     logger.debug("User with id " + user.getId() + " logged in system like user");
                     req.getRequestDispatcher("/admin/goods").forward(req, resp);
                     return;
                 } else if (user.getRole().getName().equals("admin")) {
- //                   req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
-//                    req.setAttribute("user", session.getAttribute("user"));
-//                    req.setAttribute("servletContext", servletContext.getAttribute("name"));
-//                    session.setMaxInactiveInterval(60);
                     logger.debug("User with id " + user.getId() + " logged in system like admin");
                     req.getRequestDispatcher("/admin/adminPage.jsp").forward(req, resp);
                     return;
