@@ -20,11 +20,17 @@ public class GoodDaoHibImpl {
     final static Logger logger = Logger.getLogger(GoodDaoHibImpl.class);
 
     public static GoodHib getGoodById(long id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(GoodHib.class, id);
+        return HibernateSessionFactoryUtil.
+                getSessionFactory().
+                openSession().
+                get(GoodHib.class, id);
     }
 
-    public static Optional<GoodHib> getGoodByIdO(long id) {
-        return Optional.ofNullable(HibernateSessionFactoryUtil.getSessionFactory().openSession().get(GoodHib.class, id));
+    public static Optional<GoodHib> getGoodByIdOptional(long id) {
+        return Optional.ofNullable(HibernateSessionFactoryUtil.
+                getSessionFactory().
+                openSession().
+                get(GoodHib.class, id));
     }
 
 //    public static Optional<User> getUserByLoginOptional(String name) {
@@ -41,26 +47,26 @@ public class GoodDaoHibImpl {
 //    }
 
 
-
-
-
-
     public static void addGood(GoodHib good) {
         logger.debug("adding good");
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.save(good);
-        tx1.commit();
-        session.close();
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction tx1 = session.beginTransaction();
+            session.save(good);
+            tx1.commit();
+        } catch (Exception e) {
+            logger.error("Can't add good with name " + good.getName(), e);
+        }
     }
 
     public static void updateGood(GoodHib good) {
         logger.debug("updating good");
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.update(good);
-        tx1.commit();
-        session.close();
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction tx1 = session.beginTransaction();
+            session.update(good);
+            tx1.commit();
+        } catch (Exception e) {
+            logger.error("Can't update good with name " + good.getName(), e);
+        }
     }
 
 //    public static void updateGood(GoodHib good, String newPassword) {
@@ -81,17 +87,22 @@ public class GoodDaoHibImpl {
 
     public static void deleteGood(long id) {
         logger.debug("deleting good");
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
         Transaction tx1 = session.beginTransaction();
         session.delete(getGoodById(id));
         tx1.commit();
-        session.close();
+        } catch (Exception e) {
+            logger.error("Can't delete good with id: " + id, e);
+        }
     }
 
 
     public static List<GoodHib> getAllGoods() {
         logger.debug("getting all goods");
-        List<GoodHib> goods = (List<GoodHib>) HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From GoodHib").list();
+        List<GoodHib> goods = (List<GoodHib>) HibernateSessionFactoryUtil.
+                getSessionFactory().
+                openSession().
+                createQuery("From GoodHib").list();
         return goods;
     }
 }

@@ -1,8 +1,6 @@
 package servlet.admin;
 
-import dao.GoodDao;
 import dao.GoodDaoHibImpl;
-import model.Good;
 import model.GoodHib;
 
 import javax.servlet.ServletException;
@@ -23,7 +21,7 @@ public class RedactGoodServlet extends HttpServlet {
         long id = Long.valueOf(request.getParameter("id"));
 
 //        GoodDao goodDao = new GoodDao();
-        Optional<GoodHib> goodOptional = GoodDaoHibImpl.getGoodByIdO(id);
+        Optional<GoodHib> goodOptional = GoodDaoHibImpl.getGoodByIdOptional(id);
 
        // System.out.println(good);
 

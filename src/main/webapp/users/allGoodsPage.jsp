@@ -14,7 +14,7 @@
     <title>Приветствие юзера!</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
-<body style="background-image:url(../fon.jpg);  color:#ff6c36; font-weight: normal ">
+<body style="background-image:url(../fon.jpg);  color:#fff; font-weight: normal ">
 
 <h3>
     Приветствую тебя: <c:out value="${name}"/> после успешного входа в CRM систему :) <br>

@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 
                 if (userFromDb.getRole().getName().equals("user")) {
                     logger.debug("User with id " + userFromDb.getId() + " logged in system like user");
-                    req.getRequestDispatcher("/goods").forward(req, resp);
+                    req.getRequestDispatcher("/admin/goods").forward(req, resp);
                     return;
                 } else if (userFromDb.getRole().getName().equals("admin")) {
                     req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
