@@ -22,7 +22,7 @@ public class AdminFilter implements Filter {
 //            filterChain.doFilter(servletRequest, servletResponse);
 
         String name =  String.valueOf(request.getSession().getAttribute("sessionUser"));
-        if (name != null && name.equals(Roles.admin)) {
+        if (name != null && name.equals(Roles.admin.toString())) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             request.getRequestDispatcher("accessDenied.jsp").forward(request, servletResponse);

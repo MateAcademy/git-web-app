@@ -39,11 +39,11 @@ public class LoginServlet extends HttpServlet {
                 req.getSession().setAttribute("sessionUser", name);
                 req.getSession().setMaxInactiveInterval(60);
 
-                if (user.getRole().getName().equals(Roles.user)) {
+                if (user.getRole().getName().equals(Roles.user.toString())) {
                     logger.debug("User with id " + user.getId() + " logged in system like user");
                     req.getRequestDispatcher("/admin/goods").forward(req, resp);
                     return;
-                } else if (user.getRole().getName().equals(Roles.admin)) {
+                } else if (user.getRole().getName().equals(Roles.admin.toString())) {
                     logger.debug("User with id " + user.getId() + " logged in system like admin");
                     req.getRequestDispatcher("/admin/adminPage.jsp").forward(req, resp);
                     return;
