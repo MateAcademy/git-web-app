@@ -2,8 +2,10 @@ package servlet;
 
 import dao.UserDao;
 import dao.UserDaoHibImpl;
+import model.Role;
 import model.User;
 import org.apache.log4j.Logger;
+import utils.HashUtil;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -45,8 +47,9 @@ public class RegistrationServlet extends HttpServlet {
             req.setAttribute("error", "Пользователь не был добавлен, он уже есть в базе данных");
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         } else {
-
-            int howManyUsersChanged = UserDaoHibImpl.add(new User(name, password, "s.klunniy@gmail.com", "2"));
+String salt = HashUtil.getRandomSalt();
+String password2 = HashUtil.getSHA512SecurePassword(password, salt);
+            int howManyUsersChanged = UserDaoHibImpl.add(new User(name, password2, "s.klunniy@gmail.com", new Role("user"), salt));
 
             if (howManyUsersChanged == 1) {
                 req.setAttribute("sessionUser", session.getAttribute("sessionUser"));

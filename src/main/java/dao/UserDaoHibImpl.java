@@ -34,13 +34,19 @@ public class UserDaoHibImpl {
 //        session.getTransaction().commit();
 //        session.close();
 //    }
-    public static void add(User user) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
-        Transaction tx1 = session.beginTransaction();
-        session.save(user);
-        tx1.commit();
-        session.close();
-        LOGGER.debug("User added!");
+
+    //todo session close?
+    public static int add(User user) {
+        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            Transaction tx1 = session.beginTransaction();
+            session.save(user);
+            tx1.commit();
+            LOGGER.debug("User added!");
+            return 1;
+        } catch (Exception e) {
+            LOGGER.error("Can't add user  ", e);
+            return 0;
+        }
     }
 
 

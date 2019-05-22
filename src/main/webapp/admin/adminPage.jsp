@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>Admin</title>
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 </head>
 <body style="background-image:url(../girl.jpg)">
 <style>
@@ -27,5 +28,8 @@
     <input type="submit" value="Goods Edit / Goods Delete" class="b1">
 </form>
 
+
+<br>
+<button class="b1" onclick="location.href='..'">Back to main page</button>
 </body>
 </html>

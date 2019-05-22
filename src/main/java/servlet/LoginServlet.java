@@ -19,8 +19,6 @@ public class LoginServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(LoginServlet.class);
 
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -35,11 +33,11 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = req.getSession();
                 ServletContext servletContext = req.getServletContext();
 
-                if (session.getAttribute("sessionUser") == null) {
+//                if (session.getAttribute("sessionUser") == null) {
                     session.setAttribute("user", userFromDb);
                     session.setAttribute("sessionUser", userFromDb.getName());
                     servletContext.setAttribute("name", userFromDb.getName());
-                }
+//                }
                 req.setAttribute("name", userFromDb.getName());
 
                 if (userFromDb.getRole().getName().equals("user")) {

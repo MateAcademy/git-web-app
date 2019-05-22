@@ -43,6 +43,6 @@
 </div>
 
 <br>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='..'">Back to main</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='..'">Back to main page</button>
 </body>
 </html>
