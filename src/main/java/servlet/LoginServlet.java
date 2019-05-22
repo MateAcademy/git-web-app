@@ -1,6 +1,7 @@
 package servlet;
 
 import dao.UserDaoHibImpl;
+import model.Roles;
 import model.User;
 import org.apache.log4j.Logger;
 import utils.HashUtil;
@@ -31,17 +32,18 @@ public class LoginServlet extends HttpServlet {
             String hashPassword = HashUtil.getSHA512SecurePassword(password, user.getSalt());
 
             if (user.getPassword().equals(hashPassword)) {
+// ? где это используется, может заменить на "sessionUser"?
                 req.getSession().setAttribute("user", user);
                 req.setAttribute("name", name);
 //это для фильтра "sessionUser":
                 req.getSession().setAttribute("sessionUser", name);
                 req.getSession().setMaxInactiveInterval(60);
 
-                if (user.getRole().getName().equals("user")) {
+                if (user.getRole().getName().equals(Roles.user)) {
                     logger.debug("User with id " + user.getId() + " logged in system like user");
                     req.getRequestDispatcher("/admin/goods").forward(req, resp);
                     return;
-                } else if (user.getRole().getName().equals("admin")) {
+                } else if (user.getRole().getName().equals(Roles.admin)) {
                     logger.debug("User with id " + user.getId() + " logged in system like admin");
                     req.getRequestDispatcher("/admin/adminPage.jsp").forward(req, resp);
                     return;
