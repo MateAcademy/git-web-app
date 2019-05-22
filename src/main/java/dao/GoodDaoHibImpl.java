@@ -49,7 +49,9 @@ public class GoodDaoHibImpl {
 
     public static void addGood(GoodHib good) {
         logger.debug("adding good");
-        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateSessionFactoryUtil.
+                getSessionFactory().
+                openSession()) {
             Transaction tx1 = session.beginTransaction();
             session.save(good);
             tx1.commit();
@@ -60,7 +62,9 @@ public class GoodDaoHibImpl {
 
     public static void updateGood(GoodHib good) {
         logger.debug("updating good");
-        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateSessionFactoryUtil.
+                getSessionFactory().
+                openSession()) {
             Transaction tx1 = session.beginTransaction();
             session.update(good);
             tx1.commit();
@@ -87,7 +91,9 @@ public class GoodDaoHibImpl {
 
     public static void deleteGood(long id) {
         logger.debug("deleting good");
-        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+        try (Session session = HibernateSessionFactoryUtil.
+                getSessionFactory().
+                openSession()) {
         Transaction tx1 = session.beginTransaction();
         session.delete(getGoodById(id));
         tx1.commit();
