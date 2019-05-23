@@ -1,8 +1,6 @@
 package servlet.admin;
 
-import dao.GoodDao;
 import dao.GoodDaoHibImpl;
-import model.Good;
 import model.GoodHib;
 
 import javax.servlet.ServletException;
@@ -25,7 +23,7 @@ public class UpdateTableGoodsServlet extends HttpServlet {
         String description = request.getParameter("description");
         String cost = request.getParameter("cost");
 
-//        GoodDao goodDao = new GoodDao();
+//        GoodDaoJdbc goodDao = new GoodDaoJdbc();
  //       goodDao.addGood(new Good(name, description, cost));
 GoodHib good = GoodDaoHibImpl.getGoodById(id);
       good.setName(name);

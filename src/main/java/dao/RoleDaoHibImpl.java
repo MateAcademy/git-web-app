@@ -28,9 +28,9 @@ public class RoleDaoHibImpl {
             Transaction transaction = session.beginTransaction();
             session.save(role);
             transaction.commit();
-            logger.debug("We add new role in method addRole");
+            logger.debug("We addUser new role in method addRole");
         } catch (Exception e) {
-            logger.warn("We can't add new Role in method addRole ", e);
+            logger.warn("We can't addUser new Role in method addRole ", e);
         }
     }
 }

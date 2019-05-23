@@ -20,7 +20,7 @@ public class RedactGoodServlet extends HttpServlet {
 
         long id = Long.valueOf(request.getParameter("id"));
 
-//        GoodDao goodDao = new GoodDao();
+//        GoodDaoJdbc goodDao = new GoodDaoJdbc();
         Optional<GoodHib> goodOptional = GoodDaoHibImpl.getGoodByIdOptional(id);
 
        // System.out.println(good);

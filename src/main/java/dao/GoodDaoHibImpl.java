@@ -37,7 +37,7 @@ public class GoodDaoHibImpl {
 //        SessionFactory sessionFactory = HibernateSessionFactoryUtil.getSessionFactory();
 //        try (Session session = sessionFactory.openSession()) {
 //            Criteria criteria = session.createCriteria(User.class);
-//            criteria.add(Restrictions.eq("name", name));
+//            criteria.addUser(Restrictions.eq("name", name));
 //            LOGGER.error("User with name " + name + " was found");
 //            return Optional.ofNullable((User) criteria.uniqueResult());
 //        } catch (Exception e) {
@@ -56,7 +56,7 @@ public class GoodDaoHibImpl {
             session.save(good);
             tx1.commit();
         } catch (Exception e) {
-            logger.error("Can't add good with name " + good.getName(), e);
+            logger.error("Can't addUser good with name " + good.getName(), e);
         }
     }
 

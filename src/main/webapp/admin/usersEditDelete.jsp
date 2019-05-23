@@ -50,6 +50,6 @@
         </c:forEach>
     </table>
 <br/>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin/adminPage.jsp'">Back to edit or delete page </button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin'">Back to edit or delete page </button>
 </body>
 </html>

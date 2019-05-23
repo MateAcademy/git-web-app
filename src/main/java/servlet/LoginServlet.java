@@ -41,11 +41,13 @@ public class LoginServlet extends HttpServlet {
 
                 if (user.getRole().getName().equals(Roles.user.toString())) {
                     logger.debug("User with id " + user.getId() + " logged in system like user");
-                    req.getRequestDispatcher("/admin/goods").forward(req, resp);
+//                    req.getRequestDispatcher("/user/goods").forward(req, resp);
+                    resp.sendRedirect("/user");
                     return;
                 } else if (user.getRole().getName().equals(Roles.admin.toString())) {
                     logger.debug("User with id " + user.getId() + " logged in system like admin");
-                    req.getRequestDispatcher("/admin/adminPage.jsp").forward(req, resp);
+//                    req.getRequestDispatcher("/admin/adminPage.jsp").forward(req, resp);
+                    resp.sendRedirect("/admin");
                     return;
                 }
             }

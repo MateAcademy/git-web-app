@@ -25,7 +25,7 @@ public class EditDeleteUsersServlet extends HttpServlet {
 
 
 //Этот сервлет берет юзеров из базы данных и передает на usersEditDelete.jsp, внизу код который работал:
-//        UserDao userDao = new UserDao();
+//        UserDaoJdbc userDao = new UserDaoJdbc();
         List<User> list = UserDaoHibImpl.getAllUsers();
 
         request.setAttribute("users", list);

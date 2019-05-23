@@ -1,6 +1,5 @@
 package servlet.admin;
 
-import dao.UserDao;
 import dao.UserDaoHibImpl;
 import model.User;
 import utils.HashUtil;

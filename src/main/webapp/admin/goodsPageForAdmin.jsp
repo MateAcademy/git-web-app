@@ -40,6 +40,6 @@
 <button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin/addGood.jsp'">Админ может добавить товар!</button>
 
 <br>
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/login'">Back to edit or delete page</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin'">Back to edit or delete page</button>
 </body>
 </html>
