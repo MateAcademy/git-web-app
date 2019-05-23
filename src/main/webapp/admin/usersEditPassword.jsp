@@ -26,7 +26,7 @@
             <th>Edit</th>
 
         </tr>
-        <tr><form action="usersAfterChange">
+        <tr><form action="/admin/usersAfterChange">
             <th><input type="text" name="login" value= "${name}" disabled  /></th>
             <th><input type="text" name="login" value= "${name}" hidden="false" /></th>
             <th><input type="text" name="password" value=" Введите новый пароль "></th>
@@ -36,6 +36,6 @@
     </table>
 </div><br />
 
-<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='..'">Back to main</button>
+<button class="w3-btn w3-hover-blue w3-round-large" onclick="location.href='/admin/editDeleteUsersServlet'">Вернуться обратно на страничку </button>
 </body>
 </html>

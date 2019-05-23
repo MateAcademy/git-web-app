@@ -1,22 +1,59 @@
 package model;
 
 import utils.HashUtil;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GenerationType;
+import javax.persistence.Column;
+import javax.persistence.OneToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
 import java.util.Objects;
 
+@Entity
+@Table(name = "users")
 public class User {
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     protected Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
     private String email;
-    private Integer role;
+
+    @OneToOne(cascade = CascadeType.ALL)  //означает что когда будем удалять юзера он будет поидее удалит роль
+    @JoinColumn(name = "role_id")         //колонка которую создаст хиб
+    private Role role;
+
+    @Column(name = "salt")
     private String salt;
 
-    public User(Long id, String name, String password) {
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "role")
+//    private Role role;
+
+//    public User(Long id, String name, String password) {
+//        this.id = id;
+//        this.name = name;
+//        this.password = password;
+//        this.salt = HashUtil.getRandomSalt();
+//    }
+
+    public User() {
+    }
+
+    public User(long id) {
         this.id = id;
-        this.name = name;
-        this.password = password;
-        this.salt = HashUtil.getRandomSalt();
     }
 
     public User(String name, String password) {
@@ -25,23 +62,20 @@ public class User {
         this.salt = HashUtil.getRandomSalt();
     }
 
-    public User(String name, String password, String email, Integer role) {
-        this(name, password);
-        this.role = role;
-        this.email = email;
-    }
-
-    public User(Long id, String name, String password, Integer role, String salt) {
-        this.id = id;
+    public User(String name, String password, String email, Role role) {
         this.name = name;
         this.password = password;
+        this.email = email;
         this.role = role;
-        this.salt = salt;
+        this.salt = HashUtil.getRandomSalt();
     }
 
-    public User(Long id, String name, String password, String email, Integer role, String salt) {
-        this(id, name, password, role, salt);
+    public User(String name, String password, String email, Role role, String salt) {
+        this.name = name;
+        this.password = password;
         this.email = email;
+        this.role = role;
+        this.salt = salt;
     }
 
     public Long getId() {
@@ -60,14 +94,6 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -76,11 +102,19 @@ public class User {
         this.password = password;
     }
 
-    public Integer getRole() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(Integer role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

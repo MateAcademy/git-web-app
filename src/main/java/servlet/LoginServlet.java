@@ -1,6 +1,7 @@
 package servlet;
 
-import dao.UserDao;
+import dao.UserDaoHibImpl;
+import model.Roles;
 import model.User;
 import org.apache.log4j.Logger;
 import utils.HashUtil;
@@ -19,55 +20,44 @@ import java.util.Optional;
 public class LoginServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(LoginServlet.class);
-    private static final UserDao userDao = new UserDao();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String password = req.getParameter("password");
 
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html");
-
-        String nameFromForm = req.getParameter("name");
-        String passwordFromForm = req.getParameter("password");
-
-//проверяем есть ли такой пользователь по имени - в дальнейшем переделать можно на проверку по email
-        Optional<User> userFromDb =  userDao.getUserByName(nameFromForm);
-//если есть то делаем хеш код из пароля что мы ввели и соли из б/д
+        Optional<User> userFromDb = UserDaoHibImpl.getUserByLoginOptional(name);
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
-            String hashPasswordFromForm = HashUtil.getSHA512SecurePassword(passwordFromForm, user.getSalt());
-//сравниваем хеш из БД и тот что мы сделали
-            if (user.getPassword().equals(hashPasswordFromForm)) {
+            String hashPassword = HashUtil.getSHA512SecurePassword(password, user.getSalt());
 
-                HttpSession session = req.getSession(); //из рекв достаем сессию
-//                session.setAttribute("sessionUser", user.getName());
-                ServletContext servletContext = req.getServletContext();
+            if (user.getPassword().equals(hashPassword)) {
+// ? где это используется, может заменить на "sessionUser"?
+                req.getSession().setAttribute("user", user);
+                req.setAttribute("name", name);
+//это для фильтра "sessionUser":
+                req.getSession().setAttribute("sessionUser", name);
+                req.getSession().setMaxInactiveInterval(60);
 
-//                if (session.getAttribute("sessionUser") == null) {
-                    session.setAttribute("user", user);
-                    session.setAttribute("sessionUser", user.getName());
-                    servletContext.setAttribute("name", user.getName());
-//                }
-
-                req.setAttribute("name", user.getName());
-                if (user.getRole().equals(2)) {
-
+                if (user.getRole().getName().equals(Roles.user.toString())) {
                     logger.debug("User with id " + user.getId() + " logged in system like user");
-                    req.getRequestDispatcher("/goods").forward(req, resp);
+//                    req.getRequestDispatcher("/user/goods").forward(req, resp);
+                    resp.sendRedirect("/user");
                     return;
-                } else if (user.getRole().equals(1)){
-                    req.setAttribute("sessionUser", session.getAttribute("sessionUser"));
-                    req.setAttribute("servletContext", servletContext.getAttribute("name"));
-                    session.setMaxInactiveInterval(60);
-
+                } else if (user.getRole().getName().equals(Roles.admin.toString())) {
                     logger.debug("User with id " + user.getId() + " logged in system like admin");
-                    req.getRequestDispatcher("admin/adminPage.jsp").forward(req, resp);
+//                    req.getRequestDispatcher("/admin/adminPage.jsp").forward(req, resp);
+                    resp.sendRedirect("/admin");
                     return;
                 }
             }
         }
-        req.setAttribute("error", "Пользователь с таким именем / паролем не найден!" );
+        req.setAttribute("error", "Пользователь с таким именем / паролем не найден!");
         req.getRequestDispatcher("index.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("admin/adminPage.jsp").forward(req, resp);
     }
 }

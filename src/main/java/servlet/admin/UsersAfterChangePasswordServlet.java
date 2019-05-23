@@ -1,6 +1,6 @@
 package servlet.admin;
 
-import dao.UserDao;
+import dao.UserDaoHibImpl;
 import model.User;
 import utils.HashUtil;
 
@@ -13,27 +13,22 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-@WebServlet(value = "/usersAfterChange")
+@WebServlet(value = "/admin/usersAfterChange")
 public class UsersAfterChangePasswordServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("login");
         String password = request.getParameter("password");
 
-        UserDao userDao = new UserDao();
+        Optional<User> userFromDb = UserDaoHibImpl.getUserByLoginOptional(name); //.getUserByName(name);
 
-        Optional<User> userFromDb = userDao.getUserByName(name);
-//если есть то делаем хеш код из пароля что мы ввели и соли из б/д
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
             String hashPasswordFromForm = HashUtil.getSHA512SecurePassword(password, user.getSalt());
-//сравниваем хеш из БД и тот что мы сделали
-
-            userDao.editUser(name, hashPasswordFromForm);
-            List<User> list = userDao.getAllUsers();
-
+            UserDaoHibImpl.updatePassword(user, hashPasswordFromForm);
+            List<User> list = UserDaoHibImpl.getAllUsers();
             request.setAttribute("users", list);
-            request.getRequestDispatcher("admin/usersEditDelete.jsp").forward(request, response);
+            request.getRequestDispatcher("/admin/usersEditDelete.jsp").forward(request, response);
         }
     }
 }

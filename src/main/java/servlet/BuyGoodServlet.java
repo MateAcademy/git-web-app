@@ -19,10 +19,6 @@ public class BuyGoodServlet extends HttpServlet {
     private static final CodeDao codeDao = new CodeDao();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html");
-
         Long goodId = Long.valueOf(request.getParameter("good_id"));
         String codeValue = request.getParameter("code");
         User user = (User) request.getSession().getAttribute("user");
@@ -37,9 +33,7 @@ public class BuyGoodServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long goodId = Long.parseLong(request.getParameter("id"));
-
         User user = (User) request.getSession().getAttribute("user");
-
 
         String randomCode = mailService.sendEmailWithCode(user.getEmail());
         Code code = new Code(randomCode, user.getId(), goodId);

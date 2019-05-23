@@ -1,6 +1,6 @@
 package servlet.admin;
 
-import dao.GoodDao;
+import dao.GoodDaoJdbc;
 import model.Good;
 
 import javax.servlet.ServletException;
@@ -23,10 +23,10 @@ public class AddGoodAdminServlet extends HttpServlet {
         String description = request.getParameter("description");
         Double cost = Double.valueOf(request.getParameter("cost"));
 
-        GoodDao goodDao = new GoodDao();
-        goodDao.addGood(new Good(name, description, cost));
+        GoodDaoJdbc goodDaoJdbc = new GoodDaoJdbc();
+        goodDaoJdbc.addGood(new Good(name, description, cost));
 
-        List<Good> allGoods = goodDao.getAllGoods();
+        List<Good> allGoods = goodDaoJdbc.getAllGoods();
         request.setAttribute("goods", allGoods);
         request.getRequestDispatcher("admin/goodsPageForAdmin.jsp").forward(request, response);
     }
