@@ -1,6 +1,7 @@
 package servlet.admin;
 
-import dao.UserDaoHibImpl;
+import dao.UserDao;
+import dao.impl.UserDaoImplHibImpl;
 import model.User;
 import utils.HashUtil;
 
@@ -16,17 +17,20 @@ import java.util.Optional;
 @WebServlet(value = "/admin/usersAfterChange")
 public class UsersAfterChangePasswordServlet extends HttpServlet {
 
+    UserDao userDao = new UserDaoImplHibImpl();
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("login");
         String password = request.getParameter("password");
 
-        Optional<User> userFromDb = UserDaoHibImpl.getUserByLoginOptional(name); //.getUserByName(name);
+        Optional<User> userFromDb = userDao.getUserByNameOptional(name); //.getUserByName(name);
 
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
             String hashPasswordFromForm = HashUtil.getSHA512SecurePassword(password, user.getSalt());
-            UserDaoHibImpl.updatePassword(user, hashPasswordFromForm);
-            List<User> list = UserDaoHibImpl.getAllUsers();
+            userDao.updatePassword(user, hashPasswordFromForm);
+//          List<User> list = userDao.getAllUsers();
+            List<User> list = userDao.getAll(User.class);
             request.setAttribute("users", list);
             request.getRequestDispatcher("/admin/usersEditDelete.jsp").forward(request, response);
         }

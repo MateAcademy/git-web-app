@@ -1,6 +1,7 @@
 package servlet.admin;
 
-import dao.UserDaoHibImpl;
+import dao.UserDao;
+import dao.impl.UserDaoImplHibImpl;
 import model.User;
 
 import javax.servlet.ServletException;
@@ -14,14 +15,17 @@ import java.util.List;
 @WebServlet(value = "/admin/delete")
 public class DeleteUserServlet extends HttpServlet {
 
+    private UserDao userDao = new UserDaoImplHibImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
-        long  id = Long.parseLong(req.getParameter("id"));
+        long id = Long.parseLong(req.getParameter("id"));
 
-        UserDaoHibImpl.delete(id);
+        User user = userDao.getById(User.class, id);
+        userDao.delete(user);
 
-        List<User> list = UserDaoHibImpl.getAllUsers();
+        List<User> list = userDao.getAll(User.class);
 
         req.setAttribute("users", list);
         req.getRequestDispatcher("/admin/usersEditDelete.jsp").forward(req, resp);

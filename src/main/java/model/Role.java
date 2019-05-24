@@ -28,16 +28,12 @@ public class Role {
     private User user;
 
 //   @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
-//   private List<User> users;
-
 
     public Role() {
     }
 
     public Role(String name) {
         this.name = name;
-//        this.descriptions = descriptions;
-//        this.user = user;
     }
 
     public Long getId() {
@@ -93,8 +89,6 @@ public class Role {
         return "Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", descriptions='" + descriptions + '\'' +
-
-                '}';
+                ", descriptions='" + descriptions + '\'' + '}';
     }
 }

@@ -34,9 +34,7 @@ public class MailService {
                         return new PasswordAuthentication(username, password);
                     }
                 });
-
         try {
-
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("s.klunniy@gmail.com"));
 //            message.setRecipients(

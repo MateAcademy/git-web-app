@@ -2,24 +2,16 @@ package dao;
 
 import model.User;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface UserDao {
+public interface UserDao extends GenericDao<User> {
 
-    void add(User user);
+    User getUserByName(String name);
 
-    void delete(long id);
+    Optional<User> getUserByNameOptional(String name);
 
-    void update(User user);
+    void updateUser(final String name, final String password);
 
-    void getUserByLogin(String login);
-
-    User getUserById(long id);
-
-    boolean isUserExists(User user);
-
-    String getUserRole(User user);
-
-    List<User> getAllUsers();
+    void updatePassword(User user, String newPassword);
 
 }

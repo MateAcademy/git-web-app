@@ -9,6 +9,7 @@ import java.io.IOException;
 
 @WebServlet(value = "/admin")
 public class MainServlet extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }

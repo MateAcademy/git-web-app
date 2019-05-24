@@ -6,19 +6,19 @@ import java.util.Collection;
 
 public interface Storage {
 
-    public Collection<User> values();
+    Collection<User> values();
 
-    public long add(final User user);
+    long add(final User user);
 
-    public void edit(final User user);
+    void edit(final User user);
 
-    public void delete(final long id);
+    void delete(final long id);
 
-    public User get(final int id);
+    User get(final int id);
 
-    public User findByLogin(final String login) ;
+    User findByLogin(final String login);
 
-    public int generateId();
+    int generateId();
 
-    public void close();
+    void close();
 }

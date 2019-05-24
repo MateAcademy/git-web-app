@@ -1,6 +1,6 @@
 package servlet;
 
-import dao.CodeDao;
+import dao.impl.CodeDao;
 import model.Code;
 import model.User;
 import service.MailService;

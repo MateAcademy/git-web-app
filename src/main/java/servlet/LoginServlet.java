@@ -1,18 +1,17 @@
 package servlet;
 
-import dao.UserDaoHibImpl;
+import dao.UserDao;
+import dao.impl.UserDaoImplHibImpl;
 import model.Roles;
 import model.User;
 import org.apache.log4j.Logger;
 import utils.HashUtil;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -20,13 +19,13 @@ import java.util.Optional;
 public class LoginServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(LoginServlet.class);
-
+        UserDao userDao = new UserDaoImplHibImpl();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
 
-        Optional<User> userFromDb = UserDaoHibImpl.getUserByLoginOptional(name);
+        Optional<User> userFromDb = userDao.getUserByNameOptional(name);
         if (userFromDb.isPresent()) {
             User user = userFromDb.get();
             String hashPassword = HashUtil.getSHA512SecurePassword(password, user.getSalt());

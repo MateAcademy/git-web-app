@@ -1,6 +1,7 @@
 package model;
 
 import utils.HashUtil;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -41,13 +42,6 @@ public class User {
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "role")
 //    private Role role;
-
-//    public User(Long id, String name, String password) {
-//        this.id = id;
-//        this.name = name;
-//        this.password = password;
-//        this.salt = HashUtil.getRandomSalt();
-//    }
 
     public User() {
     }
@@ -152,7 +146,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", role=" + role +
-                ", salt='" + salt + '\'' +
-                '}';
+                ", salt='" + salt + '\'' + '}';
     }
 }

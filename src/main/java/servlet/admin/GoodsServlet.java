@@ -1,6 +1,7 @@
 package servlet.admin;
 
-import dao.GoodDaoHibImpl;
+import dao.GoodDao;
+import dao.impl.GoodDaoImplHibImpl;
 import model.GoodHib;
 
 import javax.servlet.ServletException;
@@ -15,12 +16,15 @@ import java.util.List;
 @WebServlet(value = "/admin/goods")
 public class GoodsServlet extends HttpServlet {
 
+    private GoodDao goodDao = new GoodDaoImplHibImpl();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<GoodHib> allGoods = GoodDaoHibImpl.getAllGoods();
+//       List<GoodHib> allGoods = goodDao.getAllGoods();
+        List<GoodHib> allGoods = goodDao.getAll(GoodHib.class);
         request.setAttribute("goods", allGoods);
 
         HttpSession session = request.getSession();

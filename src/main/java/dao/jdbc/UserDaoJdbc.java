@@ -1,4 +1,4 @@
-package dao;
+package dao.jdbc;
 
 import model.User;
 import org.apache.log4j.Logger;
@@ -31,7 +31,7 @@ public class UserDaoJdbc {
             logger.debug(sql);
             return result;
         } catch (SQLException e) {
-            logger.error("Can't addUser user", e);
+            logger.error("Can't add user", e);
             return 0;
         }
     }
@@ -49,7 +49,7 @@ public class UserDaoJdbc {
 //                String name = resultSet.getString("name");
 //                String password = resultSet.getString("password");
 //                User user = new User(id, name, password);
-//                list.addUser(user);
+//                list.add(user);
 //            }
 //        } catch (SQLException e) {
 //            logger.error("Error, we can't getAllUsers", e);
@@ -100,7 +100,7 @@ public class UserDaoJdbc {
 //        return Optional.empty();
 //    }
 
-//        public int addUser(User user){
+//        public int add(User user){
 //        String sql = "INSERT INTO madb.users (name , password, email, role, salt) VALUES (?, ?, ?, ?, ?);";
 //        try (PreparedStatement statement = connection.prepareStatement(sql)){
 //            statement.setString(1, user.getName());
@@ -112,14 +112,14 @@ public class UserDaoJdbc {
 //            logger.debug(sql);
 //            return result;
 //        } catch (SQLException e) {
-//            logger.error("Error! Can't addUser user", e);
+//            logger.error("Error! Can't add user", e);
 //            return 0;
 //        }finally {
 //            try {
 //                connection.close();
-//                logger.debug("Connection for addUser was successfully close");
+//                logger.debug("Connection for add was successfully close");
 //            } catch (SQLException e) {
-//                logger.error("Error! Connection for addUser wasn't close", e);
+//                logger.error("Error! Connection for add wasn't close", e);
 //            }
 //        }
 //    }
@@ -144,7 +144,7 @@ public class UserDaoJdbc {
 //        return Optional.empty();
 //    }
 
-//    public void addUser(User user) {
+//    public void add(User user) {
 //        try {
 //            Statement statement = connection.createStatement();
 //            String sql = "INSERT INTO madb.users(name, password) VALUES ('" + user.getName() + "','" + user.getPassword() + "');";
@@ -191,7 +191,7 @@ public class UserDaoJdbc {
 //        }
 //    }
 
-    //    public int addUser(User user) {
+    //    public int add(User user) {
 //        try {
 //            Statement statement = connection.createStatement();
 //            String name = user.getName();
@@ -203,7 +203,7 @@ public class UserDaoJdbc {
 //            int userAddedOrNo = statement.executeUpdate(sql);
 //            return userAddedOrNo;
 //        } catch (SQLException e) {
-//            logger.error("Can't addUser user by name", e);
+//            logger.error("Can't add user by name", e);
 //            return 0;
 //        }
 //    }

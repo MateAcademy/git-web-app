@@ -1,6 +1,7 @@
 package servlet.admin;
 
-import dao.GoodDaoHibImpl;
+import dao.GoodDao;
+import dao.impl.GoodDaoImplHibImpl;
 import model.GoodHib;
 
 import javax.servlet.ServletException;
@@ -13,6 +14,9 @@ import java.util.List;
 
 @WebServlet(value = "/admin/updateTableGoods")
 public class UpdateTableGoodsServlet extends HttpServlet {
+
+    private GoodDao goodDao = new GoodDaoImplHibImpl();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        request.setCharacterEncoding("UTF-8");
 //        response.setContentType("text/html");
@@ -24,15 +28,18 @@ public class UpdateTableGoodsServlet extends HttpServlet {
         String cost = request.getParameter("cost");
 
 //        GoodDaoJdbc goodDao = new GoodDaoJdbc();
- //       goodDao.addGood(new Good(name, description, cost));
-GoodHib good = GoodDaoHibImpl.getGoodById(id);
-      good.setName(name);
-      good.setDescription(description);
-      good.setPrice(cost);
+//        goodDao.addGood(new Good(name, description, cost));
 
-        GoodDaoHibImpl.updateGood(good);
+        GoodHib good = goodDao.getById(GoodHib.class, id);
+//      GoodHib good = goodDao.getGoodById(id);
+        good.setName(name);
+        good.setDescription(description);
+        good.setPrice(cost);
 
-        List<GoodHib> allGoods = GoodDaoHibImpl.getAllGoods();
+        goodDao.update(good);
+
+//      List<GoodHib> allGoods = goodDao.getAllGoods();
+        List<GoodHib> allGoods = goodDao.getAll(GoodHib.class);
         request.setAttribute("goods", allGoods);
         request.getRequestDispatcher("/admin/goodsPageForAdmin.jsp").forward(request, response);
     }
