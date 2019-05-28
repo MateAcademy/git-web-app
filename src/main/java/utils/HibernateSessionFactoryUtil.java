@@ -1,6 +1,7 @@
 package utils;
 
-import model.GoodHib;
+import model.Good;
+import model.Order;
 import model.Role;
 import model.User;
 import org.apache.log4j.Logger;
@@ -15,12 +16,14 @@ public class HibernateSessionFactoryUtil {
     private HibernateSessionFactoryUtil() {}
 
     public static SessionFactory getSessionFactory() {
+//        Class.forName("com.mysql.jdbc.Driver");
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration().configure();
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Role.class);
-                configuration.addAnnotatedClass(GoodHib.class);
+                configuration.addAnnotatedClass(Good.class);
+                configuration.addAnnotatedClass(Order.class);
 
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());

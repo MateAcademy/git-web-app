@@ -29,10 +29,12 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     @Override
     public T getById(Class<T> entityClass, final long id) {
-        return HibernateSessionFactoryUtil
+        Session session = HibernateSessionFactoryUtil
                 .getSessionFactory()
-                .openSession()
-                .get(entityClass, id);
+                .openSession();
+        T object = session.get(entityClass, id);
+        session.close();
+        return object;
     }
 
     @Override
@@ -63,10 +65,17 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     @Override
     public List<T> getAll(Class<T> entityClass) {
-        return HibernateSessionFactoryUtil
+//        return HibernateSessionFactoryUtil
+//                .getSessionFactory()
+//                .openSession()
+//                .createCriteria(entityClass).list();
+        Session session = HibernateSessionFactoryUtil
                 .getSessionFactory()
-                .openSession()
-                .createCriteria(entityClass).list();
+                .openSession();
+        List<T> objects = (List<T>) ((Session) session)
+                .createQuery("From " + entityClass.getName()).list();
+        session.close();
+        return objects;
     }
 }
 

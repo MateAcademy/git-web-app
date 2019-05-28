@@ -1,8 +1,8 @@
 package servlet.user;
 
 import dao.GoodDao;
-import dao.impl.GoodDaoImplHibImpl;
-import model.GoodHib;
+import dao.impl.GoodDaoImplHibernate;
+import model.Good;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,14 +15,14 @@ import java.util.List;
 @WebServlet(value = "/user")
 public class GoodsUserServlet extends HttpServlet {
 
-    GoodDao goodDao = new GoodDaoImplHibImpl();
+    GoodDao goodDao = new GoodDaoImplHibernate();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<GoodHib> allGoods = goodDao.getAll(GoodHib.class);
+        List<Good> allGoods = goodDao.getAll(Good.class);
         request.setAttribute("goods", allGoods);
         request.getRequestDispatcher("/users/allGoodsPage.jsp").forward(request, response);
     }

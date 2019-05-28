@@ -1,10 +1,10 @@
 package dao;
 
-import model.GoodHib;
+import model.Good;
 
 import java.util.Optional;
 
-public interface GoodDao extends GenericDao<GoodHib> {
+public interface GoodDao extends GenericDao<Good> {
 
-    Optional<GoodHib> getGoodByIdOptional(long id);
+    Optional<Good> getGoodByIdOptional(long id);
 }

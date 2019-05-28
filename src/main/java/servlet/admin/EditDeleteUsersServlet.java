@@ -1,7 +1,7 @@
 package servlet.admin;
 
 import dao.UserDao;
-import dao.impl.UserDaoImplHibImpl;
+import dao.impl.UserDaoImplHibernate;
 import model.User;
 import org.apache.log4j.Logger;
 
@@ -16,7 +16,7 @@ import java.util.List;
 @WebServlet(value = "/admin/editDeleteUsersServlet")
 public class EditDeleteUsersServlet extends HttpServlet {
 
-    private UserDao userDao = new UserDaoImplHibImpl();
+    private UserDao userDao = new UserDaoImplHibernate();
 
     final static Logger logger = Logger.getLogger(EditDeleteUsersServlet.class);
 

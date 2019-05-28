@@ -2,7 +2,7 @@ package servlet;
 
 import dao.UserDao;
 import dao.jdbc.UserDaoJdbc;
-import dao.impl.UserDaoImplHibImpl;
+import dao.impl.UserDaoImplHibernate;
 import model.Role;
 import model.User;
 import org.apache.log4j.Logger;
@@ -23,7 +23,7 @@ public class RegistrationServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(RegistrationServlet.class);
     private static final UserDaoJdbc USER_DAO_JDBC = new UserDaoJdbc();
-    UserDao userDao = new UserDaoImplHibImpl();
+    UserDao userDao = new UserDaoImplHibernate();
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");

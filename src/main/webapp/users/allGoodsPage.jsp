@@ -36,7 +36,7 @@
             <td><c:out value="${good.getName()}"/></td>
             <td><c:out value="${good.getDescription()}"/></td>
             <td><c:out value="${good.getPrice()}"/></td>
-            <td><a href='buy?id=${good.getId()}'>Купить!</a></td>
+            <td><a href='/user/addToOrder?id=${good.getId()}'>Добавить в корзину!</a></td>
             </tr>
         </с:forEach>
     </table>

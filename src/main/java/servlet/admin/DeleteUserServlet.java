@@ -1,7 +1,7 @@
 package servlet.admin;
 
 import dao.UserDao;
-import dao.impl.UserDaoImplHibImpl;
+import dao.impl.UserDaoImplHibernate;
 import model.User;
 
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.util.List;
 @WebServlet(value = "/admin/delete")
 public class DeleteUserServlet extends HttpServlet {
 
-    private UserDao userDao = new UserDaoImplHibImpl();
+    private UserDao userDao = new UserDaoImplHibernate();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

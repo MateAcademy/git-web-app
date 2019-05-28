@@ -1,7 +1,7 @@
 package servlet.admin;
 
 import dao.UserDao;
-import dao.impl.UserDaoImplHibImpl;
+import dao.impl.UserDaoImplHibernate;
 import model.User;
 import utils.HashUtil;
 
@@ -17,7 +17,7 @@ import java.util.Optional;
 @WebServlet(value = "/admin/usersAfterChange")
 public class UsersAfterChangePasswordServlet extends HttpServlet {
 
-    UserDao userDao = new UserDaoImplHibImpl();
+    UserDao userDao = new UserDaoImplHibernate();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("login");

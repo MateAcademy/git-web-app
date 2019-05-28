@@ -19,8 +19,8 @@ public class User {
 
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    protected Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -38,12 +38,23 @@ public class User {
     @Column(name = "salt")
     private String salt;
 
+    @OneToOne(mappedBy = "user")
+    private Order order;
+
 
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "role")
 //    private Role role;
 
     public User() {
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
     public User(long id) {
@@ -130,12 +141,13 @@ public class User {
                 Objects.equals(password, user.password) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(role, user.role) &&
-                Objects.equals(salt, user.salt);
+                Objects.equals(salt, user.salt) &&
+                Objects.equals(order, user.order);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password, email, role, salt);
+        return Objects.hash(id, name, password, email, role, salt, order);
     }
 
     @Override

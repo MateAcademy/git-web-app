@@ -1,7 +1,7 @@
 package servlet;
 
 import dao.UserDao;
-import dao.impl.UserDaoImplHibImpl;
+import dao.impl.UserDaoImplHibernate;
 import model.Roles;
 import model.User;
 import org.apache.log4j.Logger;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public class LoginServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(LoginServlet.class);
-        UserDao userDao = new UserDaoImplHibImpl();
+        UserDao userDao = new UserDaoImplHibernate();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
@@ -36,9 +36,9 @@ public class LoginServlet extends HttpServlet {
                 req.setAttribute("name", name);
 //это для фильтра "sessionUser":
                 req.getSession().setAttribute("sessionUser", name);
-                req.getSession().setMaxInactiveInterval(60);
+      //          req.getSession().setMaxInactiveInterval(60);
 
-                if (user.getRole().getName().equals(Roles.user.toString())) {
+                if (user.getRole().getName().equals(Roles.user.toString()) || user.getRole().getName().equals(Roles.test.toString())) {
                     logger.debug("User with id " + user.getId() + " logged in system like user");
 //                    req.getRequestDispatcher("/user/goods").forward(req, resp);
                     resp.sendRedirect("/user");

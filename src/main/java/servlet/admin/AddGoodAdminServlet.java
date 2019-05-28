@@ -1,8 +1,8 @@
 package servlet.admin;
 
 import dao.GoodDao;
-import dao.impl.GoodDaoImplHibImpl;
-import model.GoodHib;
+import dao.impl.GoodDaoImplHibernate;
+import model.Good;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,9 +24,9 @@ public class AddGoodAdminServlet extends HttpServlet {
 //        goodDaoJdbc.addGood(new Good(name, description, cost));
 //        List<Good> allGoods = goodDaoJdbc.getAllGoods();
 
-        GoodDao goodDao = new GoodDaoImplHibImpl();
-        goodDao.add(new GoodHib(name, description, cost));
-        List<GoodHib> allGoods = goodDao.getAll(GoodHib.class);
+        GoodDao goodDao = new GoodDaoImplHibernate();
+        goodDao.add(new Good(name, description, cost));
+        List<Good> allGoods = goodDao.getAll(Good.class);
 
         request.setAttribute("goods", allGoods);
         request.getRequestDispatcher("admin/goodsPageForAdmin.jsp").forward(request, response);
