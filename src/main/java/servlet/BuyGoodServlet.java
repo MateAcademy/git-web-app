@@ -1,6 +1,6 @@
 package servlet;
 
-import dao.CodeDao;
+import dao.impl.CodeDao;
 import model.Code;
 import model.User;
 import service.MailService;
@@ -23,7 +23,6 @@ public class BuyGoodServlet extends HttpServlet {
         String codeValue = request.getParameter("code");
         User user = (User) request.getSession().getAttribute("user");
         Code code = new Code(codeValue, user.getId(), goodId);
-
         if (codeDao.checkCode(code)) {
             response.getWriter().print("Оплата прошла");
         } else {

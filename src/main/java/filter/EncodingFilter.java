@@ -1,6 +1,7 @@
 package filter;
 
 import org.apache.log4j.Logger;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -11,12 +12,12 @@ import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = "/*")
-public class EncodingFilter implements Filter  {
+public class EncodingFilter implements Filter {
 
     private static final Logger logger = Logger.getLogger(EncodingFilter.class);
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         logger.debug("encoding filter init");
     }
 

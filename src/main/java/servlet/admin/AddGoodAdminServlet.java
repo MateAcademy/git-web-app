@@ -1,6 +1,7 @@
 package servlet.admin;
 
-import dao.GoodDaoJdbc;
+import dao.GoodDao;
+import dao.impl.GoodDaoImplHibernate;
 import model.Good;
 
 import javax.servlet.ServletException;
@@ -15,18 +16,18 @@ import java.util.List;
 public class AddGoodAdminServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-
         String name = request.getParameter("name");
         String description = request.getParameter("description");
-        Double cost = Double.valueOf(request.getParameter("cost"));
+        String cost = request.getParameter("cost");
 
-        GoodDaoJdbc goodDaoJdbc = new GoodDaoJdbc();
-        goodDaoJdbc.addGood(new Good(name, description, cost));
+//        GoodDaoJdbc goodDaoJdbc = new GoodDaoJdbc();
+//        goodDaoJdbc.addGood(new Good(name, description, cost));
+//        List<Good> allGoods = goodDaoJdbc.getAllGoods();
 
-        List<Good> allGoods = goodDaoJdbc.getAllGoods();
+        GoodDao goodDao = new GoodDaoImplHibernate();
+        goodDao.add(new Good(name, description, cost));
+        List<Good> allGoods = goodDao.getAll(Good.class);
+
         request.setAttribute("goods", allGoods);
         request.getRequestDispatcher("admin/goodsPageForAdmin.jsp").forward(request, response);
     }

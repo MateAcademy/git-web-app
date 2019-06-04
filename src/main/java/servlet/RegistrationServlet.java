@@ -1,7 +1,8 @@
 package servlet;
 
-import dao.UserDaoJdbc;
-import dao.UserDaoHibImpl;
+import dao.UserDao;
+import dao.jdbc.UserDaoJdbc;
+import dao.impl.UserDaoImplHibernate;
 import model.Role;
 import model.User;
 import org.apache.log4j.Logger;
@@ -22,6 +23,7 @@ public class RegistrationServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(RegistrationServlet.class);
     private static final UserDaoJdbc USER_DAO_JDBC = new UserDaoJdbc();
+    UserDao userDao = new UserDaoImplHibernate();
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
@@ -36,26 +38,26 @@ public class RegistrationServlet extends HttpServlet {
         session.setMaxInactiveInterval(60);
 //        }
         resp.setStatus(HttpServletResponse.SC_OK);
-        Optional<User> userFromDb = UserDaoHibImpl.getUserByLoginOptional(name);
+        Optional<User> userFromDb = userDao.getUserByNameOptional(name);
         if (userFromDb.isPresent()) {
-            logger.error("Can't addUser user in database, zero rows changes after sql query");
+            logger.error("Can't add user in database, zero rows changes after sql query");
             req.setAttribute("error", "Пользователь не был добавлен, он уже есть в базе данных");
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         } else {
             String salt = HashUtil.getRandomSalt();
             String password2 = HashUtil.getSHA512SecurePassword(password, salt);
-            int howManyUsersChanged = UserDaoHibImpl.addUser(new User(name, password2, "s.klunniy@gmail.com", new Role("user"), salt));
+             userDao.add(new User(name, password2, "s.klunniy@gmail.com", new Role("user"), salt));
 
-            if (howManyUsersChanged == 1) {
+//            if (howManyUsersChanged == 1) {
                 req.setAttribute("sessionUser", name);
 //                req.setAttribute("servletContext", servletContext.getAttribute("name"));
-//                session.setMaxInactiveInterval(60);
+                session.setMaxInactiveInterval(60);
                 req.setAttribute("registered", true);
                 logger.debug("User with name " + name + " was registered");
-            } else {
-                logger.error("Can't addUser user in database, zero rows changes after sql query");
-                req.setAttribute("error", "Пользователь не был добавлен");
-            }
+//            } else {
+//                logger.error("Can't add user in database, zero rows changes after sql query");
+//                req.setAttribute("error", "Пользователь не был добавлен");
+//            }
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         }
     }

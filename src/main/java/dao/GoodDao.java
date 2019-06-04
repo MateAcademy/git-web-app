@@ -2,17 +2,9 @@ package dao;
 
 import model.Good;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface GoodDao {
+public interface GoodDao extends GenericDao<Good> {
 
-    void add(Good good);
-
-    void delete(long id);
-
-    void update(Good good);
-
-    Good getGoodById(long id);
-
-    List<Good> getAllGoods();
+    Optional<Good> getGoodByIdOptional(long id);
 }

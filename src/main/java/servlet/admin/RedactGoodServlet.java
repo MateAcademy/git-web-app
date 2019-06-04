@@ -1,7 +1,8 @@
 package servlet.admin;
 
-import dao.GoodDaoHibImpl;
-import model.GoodHib;
+import dao.impl.GoodDaoImplHibernate;
+import model.Good;
+import dao.GoodDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,20 +14,20 @@ import java.util.Optional;
 
 @WebServlet(value = "/admin/redactGood")
 public class RedactGoodServlet extends HttpServlet {
+
+    GoodDao goodDao = new GoodDaoImplHibernate();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
-//        response.setCharacterEncoding("UTF-8");
-//        response.setContentType("text/html");
 
         long id = Long.valueOf(request.getParameter("id"));
 
 //        GoodDaoJdbc goodDao = new GoodDaoJdbc();
-        Optional<GoodHib> goodOptional = GoodDaoHibImpl.getGoodByIdOptional(id);
+        Optional<Good> goodOptional = goodDao.getGoodByIdOptional(id);
 
        // System.out.println(good);
 
         if (goodOptional.isPresent()) {
-            GoodHib good = goodOptional.get();
+            Good good = goodOptional.get();
             request.setAttribute("id", good.getId());
             request.setAttribute("name", good.getName());
             request.setAttribute("description", good.getDescription());
